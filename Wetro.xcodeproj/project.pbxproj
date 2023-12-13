@@ -10,7 +10,6 @@
 		168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0742B29D66C003ACA9D /* AppDelegate.swift */; };
 		168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0762B29D66C003ACA9D /* SceneDelegate.swift */; };
 		168AC0792B29D66C003ACA9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* ViewController.swift */; };
-		168AC07E2B29D66D003ACA9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168AC07D2B29D66D003ACA9D /* Assets.xcassets */; };
 		168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +34,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161EABF72B29DE9200522B14 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				168AC0742B29D66C003ACA9D /* AppDelegate.swift */,
+				168AC0762B29D66C003ACA9D /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		161EABF82B29DEBF00522B14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		161EABF92B29DEC500522B14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		161EABFA2B29DED100522B14 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				168AC0782B29D66C003ACA9D /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		161EABFB2B29DEE000522B14 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		161EABFC2B29DEFA00522B14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				168AC0822B29D66D003ACA9D /* Info.plist */,
+				168AC07D2B29D66D003ACA9D /* Assets.xcassets */,
+				168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		168645FC2B2A083C009C028A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		168645FD2B2A084E009C028A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		168AC0682B29D66C003ACA9D = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +115,14 @@
 		168AC0732B29D66C003ACA9D /* Wetro */ = {
 			isa = PBXGroup;
 			children = (
-				168AC0742B29D66C003ACA9D /* AppDelegate.swift */,
-				168AC0762B29D66C003ACA9D /* SceneDelegate.swift */,
-				168AC0782B29D66C003ACA9D /* ViewController.swift */,
-				168AC07D2B29D66D003ACA9D /* Assets.xcassets */,
-				168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */,
-				168AC0822B29D66D003ACA9D /* Info.plist */,
+				161EABF72B29DE9200522B14 /* Core */,
+				168645FD2B2A084E009C028A /* Services */,
+				161EABF92B29DEC500522B14 /* Models */,
+				161EABF82B29DEBF00522B14 /* Views */,
+				161EABFB2B29DEE000522B14 /* ViewModels */,
+				161EABFA2B29DED100522B14 /* ViewControllers */,
+				161EABFC2B29DEFA00522B14 /* Resources */,
+				168645FC2B2A083C009C028A /* Utils */,
 			);
 			path = Wetro;
 			sourceTree = "<group>";
@@ -123,7 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */,
-				168AC07E2B29D66D003ACA9D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +344,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9HWC54SK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Wetro/Info.plist;
+				INFOPLIST_FILE = Wetro/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -309,7 +371,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9HWC54SK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Wetro/Info.plist;
+				INFOPLIST_FILE = Wetro/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
