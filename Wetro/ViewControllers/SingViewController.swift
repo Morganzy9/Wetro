@@ -64,6 +64,5 @@ extension SingViewController {
         print("DEBUG CONSOLE: ")
         coordinator?.signSuccess()
     }
-    
 }
 

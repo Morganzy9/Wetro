@@ -14,14 +14,21 @@ final class MainCoordinator: Coordinator {
     func signSuccess() {
         let vc = DataViewController()
         vc.coordinator = self
-        navigationController?.pushViewController(vc, animated: true)
+        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = .fade
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.setViewControllers([vc], animated: false)
     }
+
     
     func start() {
-        var vc: UIViewController & Coordinating = SingViewController()
+        let vc = SingViewController()
         vc.coordinator = self
         navigationController?.setViewControllers([vc], animated: false)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
     }
+
 
 }
