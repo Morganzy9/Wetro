@@ -12,7 +12,7 @@ final class WTRequest {
     
     /// API Constants
     private struct Constants {
-        static let baseUrl = "https://rickandmortyapi.com/api"
+        static let baseUrl = "https://api.spotify.com/v1"
     }
     
     /// Desired EndPoint
@@ -119,5 +119,7 @@ final class WTRequest {
 }
 
 extension WTRequest {
+    
+    
 }
 
