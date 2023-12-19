@@ -17,6 +17,9 @@
 		16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */; };
 		16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B32B2AEF1C00BC74E3 /* Coordinator.swift */; };
 		16C339B62B2AEFAE00BC74E3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B52B2AEFAE00BC74E3 /* MainCoordinator.swift */; };
+		16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA12B30A36700F8F6CD /* WTService.swift */; };
+		16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA32B30A37400F8F6CD /* WTRequest.swift */; };
+		16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTTabBarController.swift; sourceTree = "<group>"; };
 		16C339B32B2AEF1C00BC74E3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		16C339B52B2AEFAE00BC74E3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		16E68EA12B30A36700F8F6CD /* WTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTService.swift; sourceTree = "<group>"; };
+		16E68EA32B30A37400F8F6CD /* WTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTRequest.swift; sourceTree = "<group>"; };
+		16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		168645FD2B2A084E009C028A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				16E68EA02B30A32700F8F6CD /* ApiServiece */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -157,6 +164,16 @@
 				16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		16E68EA02B30A32700F8F6CD /* ApiServiece */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EA12B30A36700F8F6CD /* WTService.swift */,
+				16E68EA32B30A37400F8F6CD /* WTRequest.swift */,
+				16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */,
+			);
+			path = ApiServiece;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +258,10 @@
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
+				16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */,
 				168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */,
+				16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */,
+				16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
