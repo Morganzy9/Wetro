@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import SafariServices
 
 final class MainCoordinator: Coordinator {
     
     var navigationController: UINavigationController?
+    
+    func start() {
+        let vc = LinkAccountVC()
+        vc.coordinator = self
+        navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.navigationBar.isHidden = false
+    }
     
     func signSuccess() {
         let vc = DataViewController()
@@ -21,14 +29,9 @@ final class MainCoordinator: Coordinator {
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.setViewControllers([vc], animated: false)
     }
-
     
-    func start() {
-        let vc = SingViewController()
-        vc.coordinator = self
-        navigationController?.setViewControllers([vc], animated: false)
-        navigationController?.navigationBar.isHidden = false
+    func safariLinkPresentation(vc: SFSafariViewController) {
+        navigationController?.present(vc, animated: true)
     }
-
-
+    
 }

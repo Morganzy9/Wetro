@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol Coordinator {
     var navigationController: UINavigationController? { get set }
     func signSuccess()
     func start()
+    func safariLinkPresentation(vc: SFSafariViewController)
 }
 
 protocol Coordinating {
