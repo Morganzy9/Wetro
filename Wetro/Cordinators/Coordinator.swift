@@ -13,6 +13,7 @@ protocol Coordinator {
     func signSuccess()
     func start()
     func safariLinkPresentation(vc: SFSafariViewController)
+    func closeSafari()
 }
 
 protocol Coordinating {

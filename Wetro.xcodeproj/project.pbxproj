@@ -23,6 +23,9 @@
 		16E68EA82B31AF3B00F8F6CD /* LinkAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA72B31AF3B00F8F6CD /* LinkAccountViewModel.swift */; };
 		16E68EAA2B31AFC600F8F6CD /* LinkAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA92B31AFC600F8F6CD /* LinkAccountView.swift */; };
 		16E68EAC2B31CACC00F8F6CD /* LinkAccountVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAB2B31CACC00F8F6CD /* LinkAccountVCViewModel.swift */; };
+		16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */; };
+		16E68EB02B31FBF400F8F6CD /* PersistenceActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */; };
+		16E68EB22B31FCBD00F8F6CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EB12B31FCBD00F8F6CD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		16E68EA72B31AF3B00F8F6CD /* LinkAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccountViewModel.swift; sourceTree = "<group>"; };
 		16E68EA92B31AFC600F8F6CD /* LinkAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccountView.swift; sourceTree = "<group>"; };
 		16E68EAB2B31CACC00F8F6CD /* LinkAccountVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccountVCViewModel.swift; sourceTree = "<group>"; };
+		16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTToken.swift; sourceTree = "<group>"; };
+		16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceActionType.swift; sourceTree = "<group>"; };
+		16E68EB12B31FCBD00F8F6CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		161EABF92B29DEC500522B14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,6 +121,7 @@
 		168645FC2B2A083C009C028A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				16E68EB12B31FCBD00F8F6CD /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -122,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				16E68EA02B30A32700F8F6CD /* ApiServiece */,
+				16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -152,8 +161,8 @@
 				161EABF82B29DEBF00522B14 /* Views */,
 				161EABFB2B29DEE000522B14 /* ViewModels */,
 				161EABFA2B29DED100522B14 /* ViewControllers */,
-				161EABFC2B29DEFA00522B14 /* Resources */,
 				168645FC2B2A083C009C028A /* Utils */,
+				161EABFC2B29DEFA00522B14 /* Resources */,
 			);
 			path = Wetro;
 			sourceTree = "<group>";
@@ -268,9 +277,12 @@
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
+				16E68EB22B31FCBD00F8F6CD /* Constants.swift in Sources */,
 				16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */,
 				168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */,
+				16E68EB02B31FBF400F8F6CD /* PersistenceActionType.swift in Sources */,
 				16E68EAC2B31CACC00F8F6CD /* LinkAccountVCViewModel.swift in Sources */,
+				16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */,
 				16E68EA82B31AF3B00F8F6CD /* LinkAccountViewModel.swift in Sources */,
 				16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */,
 				16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */,

@@ -34,4 +34,8 @@ final class MainCoordinator: Coordinator {
         navigationController?.present(vc, animated: true)
     }
     
+    func closeSafari() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

@@ -14,6 +14,7 @@ final class LinkAccountVC: UIViewController, Coordinating {
     //  MARK: - Constants & Variables
     
     var coordinator: Coordinator?
+    private let viewModel = LinkAccountVCViewModel()
     
     //  MARK: - UI
     
@@ -25,7 +26,7 @@ final class LinkAccountVC: UIViewController, Coordinating {
     }
 }
 
-extension LinkAccountVC: LinkAccountViewDelegate {
+extension LinkAccountVC: LinkAccountViewDelegate, SFSafariViewControllerDelegate {
     
     //  MARK: - Private Methods
     
@@ -67,5 +68,13 @@ extension LinkAccountVC: LinkAccountViewDelegate {
         coordinator?.safariLinkPresentation(vc: safari)
     }
     
-   
+    //  MARK: - SFSafariViewControllerDelegate
+    
+    func safariViewController(_ controller: SFSafariViewController, initialLoadDidRedirectTo URL: URL) {
+        let currentURL = URL.absoluteURL
+        guard currentURL.absoluteString.contains("https://www.google.com/?code=") else { return }
+        viewModel.authorizeUser(with: currentURL.absoluteString)
+        coordinator?.closeSafari()
+    }
+    
 }
