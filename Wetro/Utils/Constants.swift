@@ -3,7 +3,7 @@
 //  Wetro
 //
 //  Created by Ислам Пулатов on 12/19/23.
-//
+//    pepwym-jenbIv-6zefvu
 
 import Foundation
 import UIKit.UIScreen
