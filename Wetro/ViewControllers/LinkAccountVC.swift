@@ -75,7 +75,6 @@ extension LinkAccountVC: LinkAccountViewDelegate, SFSafariViewControllerDelegate
         print("DEBUG CONSOLE 1- : \(currentURL)")
         guard currentURL.absoluteString.contains("https://www.google.com/?code=") else { return }
         viewModel.authorizeUser(with: currentURL.absoluteString)
-        print("DEBUG CONSOLE 2- : \(currentURL)")
         coordinator?.closeSafari()
     }
     
