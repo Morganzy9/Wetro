@@ -15,8 +15,8 @@ struct Constants {
     }
     
     struct Keys {
-        static let accessToken = "ACCESS_TOKEN"
-        static let refreshToken = "REFRESH_TOKEN"
+        static let accessToken = "WETRO_ACCESS_TOKEN"
+        static let refreshToken = "WETRO_REFRESH_TOKEN"
     }
     
     struct DeviceSizes {
