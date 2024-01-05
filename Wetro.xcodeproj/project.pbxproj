@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160996E92B4809C500769DC3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996E82B4809C500769DC3 /* AuthManager.swift */; };
 		168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0742B29D66C003ACA9D /* AppDelegate.swift */; };
 		168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0762B29D66C003ACA9D /* SceneDelegate.swift */; };
 		168AC0792B29D66C003ACA9D /* LinkAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* LinkAccountVC.swift */; };
 		168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */; };
-		16B53E0E2B2B5E63001FA5A2 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B53E0D2B2B5E63001FA5A2 /* DataViewController.swift */; };
+		16B53E0E2B2B5E63001FA5A2 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B53E0D2B2B5E63001FA5A2 /* SignInController.swift */; };
 		16C339AC2B2AE74B00BC74E3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16C339AB2B2AE74B00BC74E3 /* SnapKit */; };
 		16C339AE2B2AE74B00BC74E3 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 16C339AD2B2AE74B00BC74E3 /* SnapKit-Dynamic */; };
 		16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160996E82B4809C500769DC3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		168AC0712B29D66C003ACA9D /* Wetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC0742B29D66C003ACA9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC0762B29D66C003ACA9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +38,7 @@
 		168AC07D2B29D66D003ACA9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168AC0802B29D66D003ACA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168AC0822B29D66D003ACA9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16B53E0D2B2B5E63001FA5A2 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		16B53E0D2B2B5E63001FA5A2 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTTabBarController.swift; sourceTree = "<group>"; };
 		16C339B32B2AEF1C00BC74E3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		16C339B52B2AEFAE00BC74E3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 			children = (
 				16C339B02B2AEE8E00BC74E3 /* TabBarController */,
 				168AC0782B29D66C003ACA9D /* LinkAccountVC.swift */,
-				16B53E0D2B2B5E63001FA5A2 /* DataViewController.swift */,
+				16B53E0D2B2B5E63001FA5A2 /* SignInController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,6 +133,7 @@
 			children = (
 				16E68EA02B30A32700F8F6CD /* ApiServiece */,
 				16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */,
+				160996E82B4809C500769DC3 /* AuthManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -271,12 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				168AC0792B29D66C003ACA9D /* LinkAccountVC.swift in Sources */,
-				16B53E0E2B2B5E63001FA5A2 /* DataViewController.swift in Sources */,
+				16B53E0E2B2B5E63001FA5A2 /* SignInController.swift in Sources */,
 				16E68EAA2B31AFC600F8F6CD /* LinkAccountView.swift in Sources */,
 				16C339B62B2AEFAE00BC74E3 /* MainCoordinator.swift in Sources */,
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
+				160996E92B4809C500769DC3 /* AuthManager.swift in Sources */,
 				16E68EB22B31FCBD00F8F6CD /* Constants.swift in Sources */,
 				16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */,
 				168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */,

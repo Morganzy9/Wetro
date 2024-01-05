@@ -20,7 +20,7 @@ final class MainCoordinator: Coordinator {
     }
     
     func signSuccess() {
-        let vc = DataViewController()
+        let vc = SignInController()
         vc.coordinator = self
         
         let transition = CATransition()
@@ -30,12 +30,10 @@ final class MainCoordinator: Coordinator {
         navigationController?.setViewControllers([vc], animated: false)
     }
     
-    func safariLinkPresentation(vc: SFSafariViewController) {
-        navigationController?.present(vc, animated: true)
+    func signWebViewPresentation() {
+        let vc = SignInController()
+        navigationController?.navigationBar.tintColor = .systemGreen
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
-    func closeSafari() {
-        navigationController?.popViewController(animated: true)
-    }
-    
+
 }

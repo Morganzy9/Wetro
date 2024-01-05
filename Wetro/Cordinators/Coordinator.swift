@@ -12,8 +12,7 @@ protocol Coordinator {
     var navigationController: UINavigationController? { get set }
     func signSuccess()
     func start()
-    func safariLinkPresentation(vc: SFSafariViewController)
-    func closeSafari()
+    func signWebViewPresentation()
 }
 
 protocol Coordinating {
