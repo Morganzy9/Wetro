@@ -17,6 +17,7 @@ struct WTConstants {
     struct Keys {
         static let accessToken = "WETRO_ACCESS_TOKEN"
         static let refreshToken = "WETRO_REFRESH_TOKEN"
+        static let expirationTime = "WETRO_EXPIRATION_TIME"
     }
     
     struct DeviceSizes {

@@ -27,6 +27,30 @@ final class AuthManager {
         return URL(string: signUrl)
     }
     
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
+    
+    //  MARK: - Closures
+    
+    var shouldRefreshToken: Bool {
+        let expirationDateString = PersistenceManager.retrieveRefreshToken()
+        guard let expirationDate = dateFormatter.date(from: expirationDateString) else {
+            return false
+        }
+        
+        let currentDate = Date()
+        let fiveMinutes: TimeInterval = 300
+        let expirationThreshold = currentDate.addingTimeInterval(fiveMinutes)
+        
+        return expirationThreshold >= expirationDate
+    }
+    
+    
+    //  MARK: - Methods
+    
     func exchangeCodeForToken(code: String, completion: @escaping ((Bool) -> Void)) {
         guard let url = URL(string: WetroConstants.tokenAPIURL) else { return }
         
@@ -37,7 +61,7 @@ final class AuthManager {
             URLQueryItem(name: "redirect_uri", value: "https://www.google.com/")
         ]
         
-                
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -62,6 +86,7 @@ final class AuthManager {
                 let json = try JSONDecoder().decode(WTToken.self, from: data)
                 PersistenceManager.saveAccessToken(accessToken: json.accessToken)
                 PersistenceManager.saveRefreshToken(refreshToken: json.refreshToken)
+                PersistenceManager.saveExpirationDateOfToken(expirationTime: json.expiresIn)
             } catch {
                 print("DEBUG CONSOLE: \(error.localizedDescription)")
                 completion(false)
