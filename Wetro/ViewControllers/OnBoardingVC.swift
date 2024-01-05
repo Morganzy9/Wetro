@@ -1,5 +1,5 @@
 //
-//  LinkAccountVC.swift
+//  OnBoardingVC.swift
 //  Wetro
 //
 //  Created by Ислам Пулатов on 12/13/23.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class LinkAccountVC: UIViewController, Coordinating {
+final class OnBoardingVC: UIViewController, Coordinating {
     
     //  MARK: - Constants & Variables
     
@@ -17,7 +17,7 @@ final class LinkAccountVC: UIViewController, Coordinating {
     
     //  MARK: - UI
     
-    private let linkAccountView = LinkAccountView()
+    private let linkAccountView = OnBoardingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ final class LinkAccountVC: UIViewController, Coordinating {
     
 }
 
-extension LinkAccountVC: LinkAccountViewDelegate {
+extension OnBoardingVC: LinkAccountViewDelegate {
     
     //  MARK: - Private Methods
     

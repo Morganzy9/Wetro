@@ -1,5 +1,5 @@
 //
-//  LinkAccountView.swift
+//  OnBoardingView.swift
 //  Wetro
 //
 //  Created by Ислам Пулатов on 12/19/23.
@@ -12,7 +12,7 @@ protocol LinkAccountViewDelegate: AnyObject {
     func didTapLinkAccountButton()
 }
 
-class LinkAccountView: UIView, Coordinating{
+class OnBoardingView: UIView, Coordinating{
     
     var coordinator: Coordinator?
     weak var delegate: LinkAccountViewDelegate?
@@ -45,7 +45,7 @@ class LinkAccountView: UIView, Coordinating{
     
 }
 
-extension LinkAccountView {
+extension OnBoardingView {
     
     //  MARK: - Private Methods
     

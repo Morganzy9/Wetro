@@ -13,7 +13,7 @@ final class AuthManager {
     
     private init() {}
     
-    struct Constants {
+    struct WetroConstants {
         static let clientID = "11e9a62378e2443fb80a41efadfee150"
         static let clientSecret = "98c0c19a1e014f249b9bd70ea189e95b"
         static let tokenAPIURL = "https://accounts.spotify.com/api/token"
@@ -23,12 +23,12 @@ final class AuthManager {
         let base = "https://accounts.spotify.com/authorize"
         let redirectURI = "https%3A%2F%2Fwww.google.com%2F"
         let scope = "user-top-read,user-read-playback-state,user-modify-playback-state,playlist-read-private,playlist-read-collaborative"
-        let signUrl = "\(base)?client_id=\(Constants.clientID)&response_type=code&redirect_uri=\(redirectURI)&scope=\(scope)&show_dialog=TRUE"
+        let signUrl = "\(base)?client_id=\(WetroConstants.clientID)&response_type=code&redirect_uri=\(redirectURI)&scope=\(scope)&show_dialog=TRUE"
         return URL(string: signUrl)
     }
     
     func exchangeCodeForToken(code: String, completion: @escaping ((Bool) -> Void)) {
-        guard let url = URL(string: Constants.tokenAPIURL) else { return }
+        guard let url = URL(string: WetroConstants.tokenAPIURL) else { return }
         
         var urlComponents = URLComponents()
         urlComponents.queryItems = [
@@ -43,7 +43,7 @@ final class AuthManager {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = urlComponents.query?.data(using: .utf8)
         
-        let basicToken = Constants.clientID+":"+Constants.clientSecret
+        let basicToken = WetroConstants.clientID+":"+WetroConstants.clientSecret
         let data = basicToken.data(using: .utf8)
         guard let base64String = data?.base64EncodedString() else {
             completion(false)
@@ -53,7 +53,7 @@ final class AuthManager {
         request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
         
         let _ = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else { 
+            guard let data = data, error == nil else {
                 completion(false)
                 return
             }

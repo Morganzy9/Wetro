@@ -8,7 +8,7 @@
 import Foundation
 import UIKit.UIScreen
 
-struct Constants {
+struct WTConstants {
     
     struct Identifiers {
         

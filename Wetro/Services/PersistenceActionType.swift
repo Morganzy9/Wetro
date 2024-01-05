@@ -15,7 +15,7 @@ enum PersistenceManager {
     static private let defaults = UserDefaults.standard
     
     static func retrieveAccessToken() -> String {
-        guard let data = defaults.object(forKey: Constants.Keys.accessToken) as? Data else { return "" }
+        guard let data = defaults.object(forKey: WTConstants.Keys.accessToken) as? Data else { return "" }
         
         do {
             let decoder = JSONDecoder()
@@ -27,7 +27,7 @@ enum PersistenceManager {
     }
     
     static func retrieveRefreshToken() -> String {
-        guard let data = defaults.object(forKey: Constants.Keys.refreshToken) as? Data else { return "" }
+        guard let data = defaults.object(forKey: WTConstants.Keys.refreshToken) as? Data else { return "" }
         
         do {
             let decoder = JSONDecoder()
@@ -42,7 +42,7 @@ enum PersistenceManager {
         do {
             let encoder = JSONEncoder()
             let encodedAccessToken = try encoder.encode(accessToken)
-            defaults.set(encodedAccessToken, forKey: Constants.Keys.accessToken)
+            defaults.set(encodedAccessToken, forKey: WTConstants.Keys.accessToken)
             return nil
         } catch {
             return nil
@@ -53,7 +53,7 @@ enum PersistenceManager {
         do {
             let encoder = JSONEncoder()
             let encodedRefreshToken = try encoder.encode(refreshToken)
-            defaults.set(encodedRefreshToken, forKey: Constants.Keys.refreshToken)
+            defaults.set(encodedRefreshToken, forKey: WTConstants.Keys.refreshToken)
             return nil
         } catch {
             return nil

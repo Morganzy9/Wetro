@@ -13,7 +13,7 @@ final class MainCoordinator: Coordinator {
     var navigationController: UINavigationController?
     
     func start() {
-        let vc = LinkAccountVC()
+        let vc = OnBoardingVC()
         vc.coordinator = self
         navigationController?.setViewControllers([vc], animated: false)
         navigationController?.navigationBar.isHidden = false
