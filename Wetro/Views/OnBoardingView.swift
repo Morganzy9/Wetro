@@ -19,7 +19,6 @@ class OnBoardingView: UIView, Coordinating{
     
     //  MARK: - Private
     
-    private let viewModel = LinkAccountViewModel()
     
     //  MARK: - UI
     

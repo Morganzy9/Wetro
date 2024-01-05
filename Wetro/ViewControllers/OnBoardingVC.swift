@@ -13,7 +13,6 @@ final class OnBoardingVC: UIViewController, Coordinating {
     //  MARK: - Constants & Variables
     
     var coordinator: Coordinator?
-    private let viewModel = LinkAccountVCViewModel()
     
     //  MARK: - UI
     
