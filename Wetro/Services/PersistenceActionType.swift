@@ -14,39 +14,39 @@ enum PersistenceActionType {
 enum PersistenceManager {
     static private let defaults = UserDefaults.standard
     
-    static func retrieveAccessToken() -> String {
-        guard let data = defaults.object(forKey: WTConstants.Keys.accessToken) as? Data else { return "" }
+    static func retrieveAccessToken() -> String? {
+        guard let data = defaults.object(forKey: WTConstants.Keys.accessToken) as? Data else { return nil }
         
         do {
             let decoder = JSONDecoder()
             let token = try decoder.decode(String.self, from: data)
             return token
         } catch {
-            return ""
+            return nil
         }
     }
     
-    static func retrieveRefreshToken() -> String {
-        guard let data = defaults.object(forKey: WTConstants.Keys.refreshToken) as? Data else { return "" }
+    static func retrieveRefreshToken() -> String? {
+        guard let data = defaults.object(forKey: WTConstants.Keys.refreshToken) as? Data else { return nil }
         
         do {
             let decoder = JSONDecoder()
             let token = try decoder.decode(String.self, from: data)
             return token
         } catch {
-            return ""
+            return nil
         }
     }
     
-    static func retrieveExpirationDateOfToken() -> Date {
-        guard let data = defaults.object(forKey: WTConstants.Keys.expirationTime) as? Data else { return Date() }
+    static func retrieveExpirationDateOfToken() -> Date? {
+        guard let data = defaults.object(forKey: WTConstants.Keys.expirationTime) as? Data else { return nil }
         
         do {
             let decoder = JSONDecoder()
             let token = try decoder.decode(Date.self, from: data)
             return token
         } catch {
-            return Date()
+            return nil
         }
     }
     
