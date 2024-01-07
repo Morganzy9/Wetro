@@ -66,7 +66,6 @@ extension SignInController: WKNavigationDelegate {
         let component = URLComponents(string: url.absoluteString)
         guard let code = component?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
         signWebView.isHidden = true
-        print("DEBUG CONSOLE: \(code)")
         
         AuthManager.shared.exchangeCodeForToken(code: code) { [weak self] success in
             guard success else { return }

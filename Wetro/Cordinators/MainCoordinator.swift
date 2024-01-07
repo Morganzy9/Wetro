@@ -12,10 +12,17 @@ final class MainCoordinator: Coordinator {
     var navigationController: UINavigationController?
     
     func start() {
-        let vc = OnBoardingVC()
-        vc.coordinator = self
-        navigationController?.setViewControllers([vc], animated: false)
-        navigationController?.navigationBar.isHidden = false
+        if AuthManager.shared.isSignedIn {
+            let vc = WTTabBarController()
+            vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: false)
+            navigationController?.navigationBar.isHidden = false
+        } else {
+            let vc = OnBoardingVC()
+            vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: false)
+            navigationController?.navigationBar.isHidden = false
+        }
     }
     
     func signSuccess() {
