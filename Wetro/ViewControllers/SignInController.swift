@@ -40,7 +40,7 @@ extension SignInController: WKNavigationDelegate {
     }
     
     private func setAppearance() {
-        title = "Success"
+        title = "Sign In"
         view.backgroundColor = .systemBackground
     }
     
@@ -69,8 +69,10 @@ extension SignInController: WKNavigationDelegate {
         print("DEBUG CONSOLE: \(code)")
         
         AuthManager.shared.exchangeCodeForToken(code: code) { [weak self] success in
+            guard success else { return }
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                
+                self.coordinator?.signSuccess()
             }
         }
         

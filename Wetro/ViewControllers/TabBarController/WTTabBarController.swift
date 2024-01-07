@@ -38,10 +38,10 @@ extension WTTabBarController: UITabBarControllerDelegate {
     private func setTabs() {
         
         var viewControllers: [UIViewController] = [
-            UIViewController(),
-            UIViewController(),
-            UIViewController(),
-            UIViewController()
+            OnBoardingVC(),
+            OnBoardingVC(),
+            OnBoardingVC(),
+            OnBoardingVC()
         ]
         
         let tabBarIcons = ["person", "globe", "tv", "gear"]

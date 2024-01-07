@@ -35,8 +35,12 @@ final class AuthManager {
     
     //  MARK: - Closures
     
+    var isSignedIn: Bool {
+        return PersistenceManager.retrieveAccessToken() != nil
+    }
+    
     var shouldRefreshToken: Bool {
-        let expirationDateString = PersistenceManager.retrieveRefreshToken()
+        guard let expirationDateString = PersistenceManager.retrieveRefreshToken() else { return false}
         guard let expirationDate = dateFormatter.date(from: expirationDateString) else {
             return false
         }
@@ -87,6 +91,7 @@ final class AuthManager {
                 PersistenceManager.saveAccessToken(accessToken: json.accessToken)
                 PersistenceManager.saveRefreshToken(refreshToken: json.refreshToken)
                 PersistenceManager.saveExpirationDateOfToken(expirationTime: json.expiresIn)
+                completion(true)
             } catch {
                 print("DEBUG CONSOLE: \(error.localizedDescription)")
                 completion(false)
@@ -95,4 +100,9 @@ final class AuthManager {
         }.resume()
     }
     
+    func refreshToken(completion: @escaping(Bool) -> Void) {
+        guard shouldRefreshToken else { return }
+        guard let refreshToken = PersistenceManager.retrieveRefreshToken() else { return }
+        
+    }
 }

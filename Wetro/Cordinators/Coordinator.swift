@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 protocol Coordinator {
     var navigationController: UINavigationController? { get set }

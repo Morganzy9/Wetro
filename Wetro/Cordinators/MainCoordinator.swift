@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 final class MainCoordinator: Coordinator {
     
@@ -20,20 +19,25 @@ final class MainCoordinator: Coordinator {
     }
     
     func signSuccess() {
-        let vc = SignInController()
+        navigationController?.dismiss(animated: true)
+        let vc = WTTabBarController()
         vc.coordinator = self
         
         let transition = CATransition()
-        transition.duration = 0.5
+        transition.duration = 0.2
         transition.type = .fade
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.navigationBar.isHidden = false
     }
+
     
     func signWebViewPresentation() {
         let vc = SignInController()
+        vc.coordinator = self
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.pushViewController(vc, animated: true)
     }
+
 
 }
