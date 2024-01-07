@@ -41,11 +41,10 @@ extension WTTabBarController: UITabBarControllerDelegate {
             OnBoardingVC(),
             OnBoardingVC(),
             OnBoardingVC(),
-            OnBoardingVC()
         ]
         
-        let tabBarIcons = ["person", "globe", "tv", "gear"]
-        let tabBarTitles = ["Characters", "Locations", "Episodes", "Settings"]
+        let tabBarIcons = ["person", "globe", "gear"]
+        let tabBarTitles = ["Characters", "Locations", "Settings"]
         
         for (index, viewController) in viewControllers.enumerated() {
             viewController.navigationItem.largeTitleDisplayMode = .automatic

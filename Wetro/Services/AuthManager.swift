@@ -54,102 +54,67 @@ final class AuthManager {
     
     
     //  MARK: - Methods
-    
-    func exchangeCodeForToken(code: String, completion: @escaping ((Bool) -> Void)) {
-        guard let url = URL(string: WetroConstants.tokenAPIURL) else { return }
-        
-        var urlComponents = URLComponents()
-        urlComponents.queryItems = [
+
+    func exchangeCodeForToken(code: String, completion: @escaping (Bool) -> Void) {
+        let components = [
             URLQueryItem(name: "grant_type", value: "authorization_code"),
             URLQueryItem(name: "code", value: code),
             URLQueryItem(name: "redirect_uri", value: "https://www.google.com/")
         ]
-        
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = urlComponents.query?.data(using: .utf8)
-        
-        let basicToken = WetroConstants.clientID+":"+WetroConstants.clientSecret
-        let data = basicToken.data(using: .utf8)
-        guard let base64String = data?.base64EncodedString() else {
-            completion(false)
-            return
-        }
-        
-        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
-        
-        let _ = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
-            guard let self = self else { return }
-            guard let data = data, error == nil else {
-                completion(false)
-                return
-            }
-            
-            do {
-                let jsonToken = try JSONDecoder().decode(WTToken.self, from: data)
-                cacheToken(token: jsonToken)
-                
-                completion(true)
-            } catch {
-                print("DEBUG CONSOLE: \(error.localizedDescription)")
-                completion(false)
-            }
-            
-        }.resume()
+        requestToken(with: components, completion: completion)
     }
-    
-    func refreshToken(completion: @escaping(Bool) -> Void) {
-        guard shouldRefreshToken else { 
+
+    func refreshToken(completion: @escaping (Bool) -> Void) {
+        guard shouldRefreshToken else {
             completion(true)
             return
         }
         
-        //  MARK: Refreshing Request
-        
-        guard let url = URL(string: WetroConstants.tokenAPIURL) else { return }
         guard let refreshToken = PersistenceManager.retrieveRefreshToken() else { return }
         
-        var urlComponents = URLComponents()
-        urlComponents.queryItems = [
+        let components = [
             URLQueryItem(name: "grant_type", value: "refresh_token"),
             URLQueryItem(name: "refresh_token", value: refreshToken),
         ]
-        
+        requestToken(with: components, completion: completion)
+    }
 
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = urlComponents.query?.data(using: .utf8)
+    //  MARK: - Private Methods
+    
+    private func requestToken(with components: [URLQueryItem], completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: WetroConstants.tokenAPIURL) else { return }
         
-        let basicToken = WetroConstants.clientID+":"+WetroConstants.clientSecret
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        let query = components.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
+        urlRequest.httpBody = query.data(using: .utf8)
+        
+        let basicToken = WetroConstants.clientID + ":" + WetroConstants.clientSecret
         let data = basicToken.data(using: .utf8)
         guard let base64String = data?.base64EncodedString() else {
             completion(false)
             return
         }
-        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
         
-        let _ = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
-            guard let self = self else { return }
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let data = data, error == nil else {
                 completion(false)
                 return
             }
             do {
                 let jsonToken = try JSONDecoder().decode(WTToken.self, from: data)
-                cacheToken(token: jsonToken)
-                
+                self.cacheToken(token: jsonToken)
                 completion(true)
             } catch {
                 print("DEBUG CONSOLE: \(error.localizedDescription)")
                 completion(false)
             }
-        }.resume()
+        }
+        task.resume()
     }
-    
-    //  MARK: - Private Methods
     
     private func cacheToken(token: WTToken) {
         PersistenceManager.saveAccessToken(accessToken: token.accessToken)

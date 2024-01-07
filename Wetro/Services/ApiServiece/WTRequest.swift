@@ -57,7 +57,7 @@ final class WTRequest {
     
     
     /// HTTP Method
-    public let httpMethod = "GET"
+    public let httpMethod: String
     
     //  MARK: Public Init
     
@@ -67,10 +67,11 @@ final class WTRequest {
     ///   - endPoint: Target EndPoint
     ///   - pathComponents: Collection of path Components
     ///   - queryParameters: Collection of query parameters
-    public init(endPoint: WTEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = []) {
+    public init(endPoint: WTEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = [], httpMethod: String = "GET") {
         self.endPoint = endPoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
+        self.httpMethod = httpMethod
     }
     
     
