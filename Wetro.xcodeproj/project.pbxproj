@@ -7,30 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160996E92B4809C500769DC3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996E82B4809C500769DC3 /* AuthManager.swift */; };
+		160996EC2B4B101100769DC3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996EB2B4B101100769DC3 /* MainVC.swift */; };
+		160996EF2B4BDC9000769DC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996EE2B4BDC9000769DC3 /* MainView.swift */; };
+		160996F22B4BECC200769DC3 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996F12B4BECC200769DC3 /* MainViewViewModel.swift */; };
 		168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0742B29D66C003ACA9D /* AppDelegate.swift */; };
 		168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0762B29D66C003ACA9D /* SceneDelegate.swift */; };
-		168AC0792B29D66C003ACA9D /* SingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* SingViewController.swift */; };
+		168AC0792B29D66C003ACA9D /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* OnBoardingVC.swift */; };
 		168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */; };
-		16B53E0E2B2B5E63001FA5A2 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B53E0D2B2B5E63001FA5A2 /* DataViewController.swift */; };
+		16B53E0E2B2B5E63001FA5A2 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B53E0D2B2B5E63001FA5A2 /* SignInController.swift */; };
 		16C339AC2B2AE74B00BC74E3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16C339AB2B2AE74B00BC74E3 /* SnapKit */; };
 		16C339AE2B2AE74B00BC74E3 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 16C339AD2B2AE74B00BC74E3 /* SnapKit-Dynamic */; };
 		16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */; };
 		16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B32B2AEF1C00BC74E3 /* Coordinator.swift */; };
 		16C339B62B2AEFAE00BC74E3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B52B2AEFAE00BC74E3 /* MainCoordinator.swift */; };
+		16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA12B30A36700F8F6CD /* WTService.swift */; };
+		16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA32B30A37400F8F6CD /* WTRequest.swift */; };
+		16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */; };
+		16E68EAA2B31AFC600F8F6CD /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA92B31AFC600F8F6CD /* OnBoardingView.swift */; };
+		16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */; };
+		16E68EB02B31FBF400F8F6CD /* PersistenceActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */; };
+		16E68EB22B31FCBD00F8F6CD /* WTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160996E82B4809C500769DC3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		160996EB2B4B101100769DC3 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		160996EE2B4BDC9000769DC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		160996F12B4BECC200769DC3 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		168AC0712B29D66C003ACA9D /* Wetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC0742B29D66C003ACA9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC0762B29D66C003ACA9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		168AC0782B29D66C003ACA9D /* SingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingViewController.swift; sourceTree = "<group>"; };
+		168AC0782B29D66C003ACA9D /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		168AC07D2B29D66D003ACA9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168AC0802B29D66D003ACA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168AC0822B29D66D003ACA9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16B53E0D2B2B5E63001FA5A2 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		16B53E0D2B2B5E63001FA5A2 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTTabBarController.swift; sourceTree = "<group>"; };
 		16C339B32B2AEF1C00BC74E3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		16C339B52B2AEFAE00BC74E3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		16E68EA12B30A36700F8F6CD /* WTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTService.swift; sourceTree = "<group>"; };
+		16E68EA32B30A37400F8F6CD /* WTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTRequest.swift; sourceTree = "<group>"; };
+		16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTEndpoint.swift; sourceTree = "<group>"; };
+		16E68EA92B31AFC600F8F6CD /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTToken.swift; sourceTree = "<group>"; };
+		16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceActionType.swift; sourceTree = "<group>"; };
+		16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +68,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160996EA2B4B0FE600769DC3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */,
+				160996E82B4809C500769DC3 /* AuthManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		160996ED2B4BDC7500769DC3 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				160996EE2B4BDC9000769DC3 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		160996F02B4BECB400769DC3 /* MainViewViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				160996F12B4BECC200769DC3 /* MainViewViewModel.swift */,
+			);
+			path = MainViewViewModels;
+			sourceTree = "<group>";
+		};
+		160996F32B4BECCA00769DC3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				168AC0782B29D66C003ACA9D /* OnBoardingVC.swift */,
+				16B53E0D2B2B5E63001FA5A2 /* SignInController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		160996F42B4BECD800769DC3 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				160996EB2B4B101100769DC3 /* MainVC.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		160996F52B4BED1A00769DC3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EA92B31AFC600F8F6CD /* OnBoardingView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		161EABF72B29DE9200522B14 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -55,14 +127,39 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		161EABF82B29DEBF00522B14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				160996F52B4BED1A00769DC3 /* Auth */,
+				160996ED2B4BDC7500769DC3 /* MainView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		161EABF92B29DEC500522B14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		161EABFA2B29DED100522B14 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				160996F32B4BECCA00769DC3 /* Auth */,
 				16C339B02B2AEE8E00BC74E3 /* TabBarController */,
-				168AC0782B29D66C003ACA9D /* SingViewController.swift */,
-				16B53E0D2B2B5E63001FA5A2 /* DataViewController.swift */,
+				160996F42B4BECD800769DC3 /* MainVC */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		161EABFB2B29DEE000522B14 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				160996F02B4BECB400769DC3 /* MainViewViewModels */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		161EABFC2B29DEFA00522B14 /* Resources */ = {
@@ -73,6 +170,23 @@
 				168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		168645FC2B2A083C009C028A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		168645FD2B2A084E009C028A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EA02B30A32700F8F6CD /* ApiServiece */,
+				160996EA2B4B0FE600769DC3 /* Auth */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		168AC0682B29D66C003ACA9D = {
@@ -95,8 +209,13 @@
 			isa = PBXGroup;
 			children = (
 				161EABF72B29DE9200522B14 /* Core */,
+				168645FD2B2A084E009C028A /* Services */,
 				16C339A92B2AE64500BC74E3 /* Cordinators */,
+				161EABF92B29DEC500522B14 /* Models */,
+				161EABF82B29DEBF00522B14 /* Views */,
+				161EABFB2B29DEE000522B14 /* ViewModels */,
 				161EABFA2B29DED100522B14 /* ViewControllers */,
+				168645FC2B2A083C009C028A /* Utils */,
 				161EABFC2B29DEFA00522B14 /* Resources */,
 			);
 			path = Wetro;
@@ -117,6 +236,16 @@
 				16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		16E68EA02B30A32700F8F6CD /* ApiServiece */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EA12B30A36700F8F6CD /* WTService.swift */,
+				16E68EA32B30A37400F8F6CD /* WTRequest.swift */,
+				16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */,
+			);
+			path = ApiServiece;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +324,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				168AC0792B29D66C003ACA9D /* SingViewController.swift in Sources */,
-				16B53E0E2B2B5E63001FA5A2 /* DataViewController.swift in Sources */,
+				168AC0792B29D66C003ACA9D /* OnBoardingVC.swift in Sources */,
+				16B53E0E2B2B5E63001FA5A2 /* SignInController.swift in Sources */,
+				160996F22B4BECC200769DC3 /* MainViewViewModel.swift in Sources */,
+				16E68EAA2B31AFC600F8F6CD /* OnBoardingView.swift in Sources */,
 				16C339B62B2AEFAE00BC74E3 /* MainCoordinator.swift in Sources */,
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
+				160996E92B4809C500769DC3 /* AuthManager.swift in Sources */,
+				16E68EB22B31FCBD00F8F6CD /* WTConstants.swift in Sources */,
+				16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */,
 				168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */,
+				160996EF2B4BDC9000769DC3 /* MainView.swift in Sources */,
+				16E68EB02B31FBF400F8F6CD /* PersistenceActionType.swift in Sources */,
+				16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */,
+				16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */,
+				160996EC2B4B101100769DC3 /* MainVC.swift in Sources */,
+				16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

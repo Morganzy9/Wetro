@@ -11,23 +11,39 @@ final class MainCoordinator: Coordinator {
     
     var navigationController: UINavigationController?
     
+    func start() {
+        if AuthManager.shared.isSignedIn {
+            let vc = WTTabBarController()
+            vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: false)
+            navigationController?.navigationBar.isHidden = false
+        } else {
+            let vc = OnBoardingVC()
+            vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: false)
+            navigationController?.navigationBar.isHidden = false
+        }
+    }
+    
     func signSuccess() {
-        let vc = DataViewController()
+        navigationController?.dismiss(animated: true)
+        let vc = WTTabBarController()
         vc.coordinator = self
         
         let transition = CATransition()
-        transition.duration = 0.5
+        transition.duration = 0.2
         transition.type = .fade
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.navigationBar.isHidden = false
     }
 
     
-    func start() {
-        let vc = SingViewController()
+    func signWebViewPresentation() {
+        let vc = SignInController()
         vc.coordinator = self
-        navigationController?.setViewControllers([vc], animated: false)
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = .systemGreen
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 

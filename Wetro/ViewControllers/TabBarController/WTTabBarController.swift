@@ -38,14 +38,13 @@ extension WTTabBarController: UITabBarControllerDelegate {
     private func setTabs() {
         
         var viewControllers: [UIViewController] = [
-            UIViewController(),
-            UIViewController(),
-            UIViewController(),
-            UIViewController()
+            MainVC(),
+            OnBoardingVC(),
+            OnBoardingVC(),
         ]
         
-        let tabBarIcons = ["person", "globe", "tv", "gear"]
-        let tabBarTitles = ["Characters", "Locations", "Episodes", "Settings"]
+        let tabBarIcons = ["person", "globe", "gear"]
+        let tabBarTitles = ["Characters", "Locations", "Settings"]
         
         for (index, viewController) in viewControllers.enumerated() {
             viewController.navigationItem.largeTitleDisplayMode = .automatic
