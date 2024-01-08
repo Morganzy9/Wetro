@@ -38,7 +38,7 @@ extension WTTabBarController: UITabBarControllerDelegate {
     private func setTabs() {
         
         var viewControllers: [UIViewController] = [
-            OnBoardingVC(),
+            MainVC(),
             OnBoardingVC(),
             OnBoardingVC(),
         ]
