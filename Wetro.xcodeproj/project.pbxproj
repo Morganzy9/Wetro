@@ -11,6 +11,7 @@
 		160996EC2B4B101100769DC3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996EB2B4B101100769DC3 /* MainVC.swift */; };
 		160996EF2B4BDC9000769DC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996EE2B4BDC9000769DC3 /* MainView.swift */; };
 		160996F22B4BECC200769DC3 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996F12B4BECC200769DC3 /* MainViewViewModel.swift */; };
+		160996F82B4C616300769DC3 /* SecondSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996F72B4C616300769DC3 /* SecondSectionCollectionViewCell.swift */; };
 		168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0742B29D66C003ACA9D /* AppDelegate.swift */; };
 		168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0762B29D66C003ACA9D /* SceneDelegate.swift */; };
 		168AC0792B29D66C003ACA9D /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* OnBoardingVC.swift */; };
@@ -35,6 +36,7 @@
 		160996EB2B4B101100769DC3 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		160996EE2B4BDC9000769DC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		160996F12B4BECC200769DC3 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		160996F72B4C616300769DC3 /* SecondSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		168AC0712B29D66C003ACA9D /* Wetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC0742B29D66C003ACA9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC0762B29D66C003ACA9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		160996ED2B4BDC7500769DC3 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				160996F62B4C614100769DC3 /* Cells */,
 				160996EE2B4BDC9000769DC3 /* MainView.swift */,
 			);
 			path = MainView;
@@ -116,6 +119,14 @@
 				16E68EA92B31AFC600F8F6CD /* OnBoardingView.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		160996F62B4C614100769DC3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				160996F72B4C616300769DC3 /* SecondSectionCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		161EABF72B29DE9200522B14 /* Core */ = {
@@ -327,6 +338,7 @@
 				168AC0792B29D66C003ACA9D /* OnBoardingVC.swift in Sources */,
 				16B53E0E2B2B5E63001FA5A2 /* SignInController.swift in Sources */,
 				160996F22B4BECC200769DC3 /* MainViewViewModel.swift in Sources */,
+				160996F82B4C616300769DC3 /* SecondSectionCollectionViewCell.swift in Sources */,
 				16E68EAA2B31AFC600F8F6CD /* OnBoardingView.swift in Sources */,
 				16C339B62B2AEFAE00BC74E3 /* MainCoordinator.swift in Sources */,
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
