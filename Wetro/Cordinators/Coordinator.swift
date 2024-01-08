@@ -11,6 +11,7 @@ protocol Coordinator {
     var navigationController: UINavigationController? { get set }
     func signSuccess()
     func start()
+    func signWebViewPresentation()
 }
 
 protocol Coordinating {
