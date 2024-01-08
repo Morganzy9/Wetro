@@ -55,20 +55,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		161EABF82B29DEBF00522B14 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		161EABF92B29DEC500522B14 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		161EABFA2B29DED100522B14 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +65,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		161EABFB2B29DEE000522B14 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		161EABFC2B29DEFA00522B14 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,20 +73,6 @@
 				168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		168645FC2B2A083C009C028A /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		168645FD2B2A084E009C028A /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		168AC0682B29D66C003ACA9D = {
@@ -130,14 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				161EABF72B29DE9200522B14 /* Core */,
-				168645FD2B2A084E009C028A /* Services */,
 				16C339A92B2AE64500BC74E3 /* Cordinators */,
-				161EABF92B29DEC500522B14 /* Models */,
-				161EABF82B29DEBF00522B14 /* Views */,
-				161EABFB2B29DEE000522B14 /* ViewModels */,
 				161EABFA2B29DED100522B14 /* ViewControllers */,
 				161EABFC2B29DEFA00522B14 /* Resources */,
-				168645FC2B2A083C009C028A /* Utils */,
 			);
 			path = Wetro;
 			sourceTree = "<group>";
