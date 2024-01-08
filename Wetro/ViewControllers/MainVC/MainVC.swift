@@ -39,8 +39,10 @@ extension MainVC {
     }
     
     private func setConstrains() {
+        let topOffset = navigationController?.navigationBar.frame.height ?? 0
+        
         mainView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(10)
+            make.top.equalToSuperview().offset(topOffset)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }

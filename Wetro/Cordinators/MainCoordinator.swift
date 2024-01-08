@@ -15,6 +15,7 @@ final class MainCoordinator: Coordinator {
         if AuthManager.shared.isSignedIn {
             let vc = WTTabBarController()
             vc.coordinator = self
+            vc.title = "MainVC"
             navigationController?.setViewControllers([vc], animated: false)
             navigationController?.navigationBar.isHidden = false
         } else {
