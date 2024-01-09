@@ -46,7 +46,7 @@ extension SecondSectionCollectionViewCell: UICollectionViewDelegate, UICollectio
         secondSectionCollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
         secondSectionCollectionView.delegate = self
         secondSectionCollectionView.dataSource = self
-        secondSectionCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
+        secondSectionCollectionView.register(SecondSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
         secondSectionCollectionView.backgroundColor = .clear
         secondSectionCollectionView.showsHorizontalScrollIndicator = false
     }
@@ -69,7 +69,8 @@ extension SecondSectionCollectionViewCell: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! SecondSectionDataCollectionViewCell
+        cell.configure(with: "HERE IT IS")
         cell.backgroundColor = .green
         return cell
     }
