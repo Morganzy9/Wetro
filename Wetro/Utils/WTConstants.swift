@@ -11,7 +11,7 @@ import UIKit.UIScreen
 struct WTConstants {
     
     struct Identifiers {
-        
+        static let secondSectionViewCellIdentifier = "Second_Section_ViewCell_Identifier"
     }
     
     struct Keys {

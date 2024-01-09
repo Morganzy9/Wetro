@@ -51,7 +51,7 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                          heightDimension: .absolute(150)),
+                                                                                          heightDimension: .absolute(300)),
                                                        subitems: [item, item])
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
@@ -78,7 +78,14 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        switch sections[section] {
+        case .firstSectionMain:
+            return 5
+        case .secondSectionMain:
+            return 1
+        case .thirdSectionMain:
+            return 3
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,8 +95,7 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
             cell.backgroundColor = .systemCyan
             return cell
         case .secondSectionMain:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NUMERONE", for: indexPath)
-            cell.backgroundColor = .systemRed
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WTConstants.Identifiers.secondSectionViewCellIdentifier, for: indexPath)
             return cell
         case .thirdSectionMain:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NUMERONE", for: indexPath)
