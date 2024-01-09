@@ -22,54 +22,44 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
     func setSections(for sectionIndex: Int) -> NSCollectionLayoutSection{
         switch sections[sectionIndex] {
         case .firstSectionMain:
-            return createFirstSectionLayout()
+            return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         case .secondSectionMain:
-            return createSecondSectionLayout()
+            return createLayoutSection(with: 300, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), isPagingEnabled: true)
         case .thirdSectionMain:
-            return createThirdSectionLayout()
+            return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
     }
 
     //  MARK: - Private Methods
     
-    //  MARK: Sections in MainView
-    private func createFirstSectionLayout() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                             heightDimension: .fractionalHeight(1.0)))
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
-        
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                        heightDimension: .absolute(150)),
-                                                     subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
+    //  MARK: Creating Sections in MainView
     
-    private func createSecondSectionLayout() -> NSCollectionLayoutSection {
+    private func createLayoutSection(with itemHeight: CGFloat, contentInsets: NSDirectionalEdgeInsets, isPagingEnabled: Bool = false, isHorizontal: Bool = false) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                                              heightDimension: .fractionalHeight(1.0)))
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
+        item.contentInsets = contentInsets
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                          heightDimension: .absolute(300)),
-                                                       subitems: [item, item])
+        let group: NSCollectionLayoutGroup
+        if isHorizontal {
+            group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                                                          heightDimension: .absolute(itemHeight)),
+                                                       repeatingSubitem: item,
+                                                       count: 2)
+        } else {
+            group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                                                        heightDimension: .absolute(itemHeight)),
+                                                     repeatingSubitem: item,
+                                                     count: 1)
+        }
+        
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
+        if isPagingEnabled {
+            section.orthogonalScrollingBehavior = .groupPaging
+        }
+        
         return section
     }
-    
-    private func createThirdSectionLayout() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                             heightDimension: .fractionalHeight(1.0)))
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
-        
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                        heightDimension: .absolute(150)),
-                                                     subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        
-        return section
-    }
+
     
     //  MARK: - MainlCollectionView: MainCollUICollectionViewDelegate, UICollectionViewDataSource
     
