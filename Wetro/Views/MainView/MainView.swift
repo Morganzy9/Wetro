@@ -66,14 +66,14 @@ extension MainView {
         
         spinner.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.centerX.centerY.equalToSuperview()
         }
         
         mainlCollectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.leading.trailing.bottom.equalToSuperview()
         }
     }
+    
     
     private func setDelegates() {
         guard let mainlCollectionView = mainlCollectionView else { return }
@@ -85,6 +85,7 @@ extension MainView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
         let collectionView = createMainCollectionView()
+        collectionView.showsVerticalScrollIndicator = false
         mainlCollectionView = collectionView
     }
     

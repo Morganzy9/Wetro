@@ -22,7 +22,7 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
     func setSections(for sectionIndex: Int) -> NSCollectionLayoutSection{
         switch sections[sectionIndex] {
         case .firstSectionMain:
-            return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            return createLayoutSection(with: 250, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
         case .secondSectionMain:
             return createLayoutSection(with: 300, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), isPagingEnabled: true)
         case .thirdSectionMain:
@@ -70,7 +70,7 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch sections[section] {
         case .firstSectionMain:
-            return 5
+            return 1
         case .secondSectionMain:
             return 1
         case .thirdSectionMain:

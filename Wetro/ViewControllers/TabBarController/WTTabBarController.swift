@@ -77,7 +77,6 @@ extension WTTabBarController: UITabBarControllerDelegate {
         let positionOnY: CGFloat = 13
         let width = tabBar.bounds.width - positionOnX * 2
         let height = tabBar.bounds.height + positionOnY * 2
-        
         let roundLayer = CAShapeLayer()
         
         let bezierPath = UIBezierPath(

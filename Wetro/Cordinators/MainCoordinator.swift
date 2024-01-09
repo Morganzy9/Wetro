@@ -17,7 +17,6 @@ final class MainCoordinator: Coordinator {
             vc.coordinator = self
             vc.title = "MainVC"
             navigationController?.setViewControllers([vc], animated: false)
-            navigationController?.navigationBar.isHidden = false
         } else {
             let vc = OnBoardingVC()
             vc.coordinator = self
@@ -38,7 +37,7 @@ final class MainCoordinator: Coordinator {
         navigationController?.setViewControllers([vc], animated: false)
         navigationController?.navigationBar.isHidden = false
     }
-
+    
     
     func signWebViewPresentation() {
         let vc = SignInController()
@@ -46,6 +45,6 @@ final class MainCoordinator: Coordinator {
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.pushViewController(vc, animated: true)
     }
-
-
+    
+    
 }
