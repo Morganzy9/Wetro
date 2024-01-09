@@ -12,6 +12,8 @@ struct WTConstants {
     
     struct Identifiers {
         
+        static let firstSectionViewCellIdentifier = "First_Section_ViewCell_Identifier"
+        
         static let secondSectionViewCellIdentifier = "Second_Section_ViewCell_Identifier"
         static let secondSectionDataCellIdentifier = "Second_Section_Data_Cell_Identifier"
     }

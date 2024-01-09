@@ -95,6 +95,7 @@ extension MainView {
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "NUMERONE")
+        collectionView.register(FirstSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.firstSectionViewCellIdentifier)
         collectionView.register(SecondSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.secondSectionViewCellIdentifier)
         return collectionView
     }

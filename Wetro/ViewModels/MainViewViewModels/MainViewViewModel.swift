@@ -81,7 +81,7 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch sections[indexPath.section] {
         case .firstSectionMain:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NUMERONE", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WTConstants.Identifiers.firstSectionViewCellIdentifier, for: indexPath)
             cell.backgroundColor = .systemCyan
             return cell
         case .secondSectionMain:
