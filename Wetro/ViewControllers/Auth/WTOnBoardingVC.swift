@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class OnBoardingVC: UIViewController, Coordinating {
+final class WTOnBoardingVC: UIViewController, Coordinating {
     
     //  MARK: - Constants & Variables
     
@@ -16,7 +16,7 @@ final class OnBoardingVC: UIViewController, Coordinating {
     
     //  MARK: - UI
     
-    private let linkAccountView = OnBoardingView()
+    private let linkAccountView = WTOnBoardingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ final class OnBoardingVC: UIViewController, Coordinating {
     
 }
 
-extension OnBoardingVC: LinkAccountViewDelegate {
+extension WTOnBoardingVC: LinkAccountViewDelegate {
     
     //  MARK: - Private Methods
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstSectionCollectionViewCell: UICollectionViewCell {
+class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
@@ -35,23 +35,21 @@ class FirstSectionCollectionViewCell: UICollectionViewCell {
     
 }
 
-extension FirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //  MARK: - Private Methods
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0 // Set to zero for no spacing between cells
-        layout.minimumInteritemSpacing = 0 // Set to zero for no spacing between cells
+        layout.minimumLineSpacing = 0
         layout.sectionInset = .zero
-        layout.itemSize = CGSize(width: bounds.width, height: bounds.height) // Cell size matches the collection view bounds
         
         firstSectionCollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        firstSectionCollectionView.isPagingEnabled = true // Enable paging to snap cells to the center
+        firstSectionCollectionView.isPagingEnabled = true 
         firstSectionCollectionView.delegate = self
         firstSectionCollectionView.dataSource = self
-        firstSectionCollectionView.register(FirstSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
+        firstSectionCollectionView.register(WTFirstSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
         firstSectionCollectionView.backgroundColor = .clear
         firstSectionCollectionView.showsVerticalScrollIndicator = false
     }
@@ -69,11 +67,11 @@ extension FirstSectionCollectionViewCell: UICollectionViewDelegate, UICollection
     // UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // Replace this with the actual number of items you have
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! FirstSectionDataCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTFirstSectionDataCollectionViewCell
         cell.backgroundColor = .red
         cell.configure(with: "ONLY YOU")
         return cell
@@ -84,4 +82,5 @@ extension FirstSectionCollectionViewCell: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
+    
 }

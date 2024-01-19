@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondSectionDataCollectionViewCell: UICollectionViewCell {
+class WTSecondSectionDataCollectionViewCell: UICollectionViewCell {
     
     //  MARK: - UI
     
@@ -30,7 +30,7 @@ class SecondSectionDataCollectionViewCell: UICollectionViewCell {
     }
     
 }
-extension SecondSectionDataCollectionViewCell {
+extension WTSecondSectionDataCollectionViewCell {
     
     //  MARK: - Methods
     

@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class MainVC: UIViewController {
+class WTMainVC: UIViewController {
     
-    private let mainView = MainView()
+    private let mainView = WTMainView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class MainVC: UIViewController {
     
 }
 
-extension MainVC {
+extension WTMainVC {
     
     //  MARK: - Private Methods
     

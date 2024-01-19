@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstSectionDataCollectionViewCell: UICollectionViewCell {
+class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     //  MARK: - UI
     
     private let titleLabel: UILabel = {
@@ -21,6 +21,7 @@ class FirstSectionDataCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setCell()
+        backgroundColor = .blue
     }
     
     
@@ -29,7 +30,7 @@ class FirstSectionDataCollectionViewCell: UICollectionViewCell {
     }
     
 }
-extension FirstSectionDataCollectionViewCell {
+extension WTFirstSectionDataCollectionViewCell {
     
     //  MARK: - Methods
     

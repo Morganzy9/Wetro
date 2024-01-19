@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionViewDataSource {
+final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionViewDataSource {
     
     enum SectionType: CaseIterable {
         case firstSectionMain
@@ -82,7 +82,6 @@ final class MainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionV
         switch sections[indexPath.section] {
         case .firstSectionMain:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WTConstants.Identifiers.firstSectionViewCellIdentifier, for: indexPath)
-            cell.backgroundColor = .systemCyan
             return cell
         case .secondSectionMain:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WTConstants.Identifiers.secondSectionViewCellIdentifier, for: indexPath)

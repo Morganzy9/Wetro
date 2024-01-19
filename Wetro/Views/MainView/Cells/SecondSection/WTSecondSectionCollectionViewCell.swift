@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondSectionCollectionViewCell: UICollectionViewCell {
+class WTSecondSectionCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
@@ -36,7 +36,7 @@ class SecondSectionCollectionViewCell: UICollectionViewCell {
     
 }
 
-extension SecondSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension WTSecondSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //  MARK: - Private Methods
     
@@ -46,7 +46,7 @@ extension SecondSectionCollectionViewCell: UICollectionViewDelegate, UICollectio
         secondSectionCollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
         secondSectionCollectionView.delegate = self
         secondSectionCollectionView.dataSource = self
-        secondSectionCollectionView.register(SecondSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
+        secondSectionCollectionView.register(WTSecondSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
         secondSectionCollectionView.backgroundColor = .clear
         secondSectionCollectionView.showsHorizontalScrollIndicator = false
     }
@@ -69,7 +69,7 @@ extension SecondSectionCollectionViewCell: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! SecondSectionDataCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTSecondSectionDataCollectionViewCell
         cell.configure(with: "HERE IT IS")
         cell.backgroundColor = .green
         return cell

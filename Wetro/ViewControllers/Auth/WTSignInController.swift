@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import WebKit
 
-class SignInController: UIViewController, Coordinating {
+class WTSignInController: UIViewController, Coordinating {
     var coordinator: Coordinator?
 
     //  MARK: - UI
@@ -30,7 +30,7 @@ class SignInController: UIViewController, Coordinating {
 
 }
 
-extension SignInController: WKNavigationDelegate {
+extension WTSignInController: WKNavigationDelegate {
     
     //  MARK: - Private methods
     

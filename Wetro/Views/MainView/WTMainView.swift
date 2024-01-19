@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-final class MainView: UIView {
+final class WTMainView: UIView {
     
     //  MARK: - Variables & Constants
     
-    private let viewModel = MainViewViewModel()
+    private let viewModel = WTMainViewViewModel()
     
     //  MARK: - UI
     
@@ -38,7 +38,7 @@ final class MainView: UIView {
     
 }
 
-extension MainView {
+extension WTMainView {
     
     //  MARK: - Private Methods
     
@@ -95,8 +95,8 @@ extension MainView {
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "NUMERONE")
-        collectionView.register(FirstSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.firstSectionViewCellIdentifier)
-        collectionView.register(SecondSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.secondSectionViewCellIdentifier)
+        collectionView.register(WTFirstSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.firstSectionViewCellIdentifier)
+        collectionView.register(WTSecondSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.secondSectionViewCellIdentifier)
         return collectionView
     }
     
