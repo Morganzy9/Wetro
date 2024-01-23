@@ -24,6 +24,8 @@ final class WTRequest {
     /// Query arguments for API, if any
     private let queryParameters: [URLQueryItem]
     
+    let headers: [String: String]
+    
     /// Constructed url for the api request in string format
     private var urlString: String {
         var string = Constants.baseUrl
@@ -67,10 +69,11 @@ final class WTRequest {
     ///   - endPoint: Target EndPoint
     ///   - pathComponents: Collection of path Components
     ///   - queryParameters: Collection of query parameters
-    public init(endPoint: WTEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = [], httpMethod: String = "GET") {
+    public init(endPoint: WTEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = [], httpMethod: String = "GET", headers: [String : String] = [:]) {
         self.endPoint = endPoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
+        self.headers = headers
         self.httpMethod = httpMethod
     }
     
@@ -80,42 +83,36 @@ final class WTRequest {
     /// - Parameter url: URL to parse
     convenience init?(url: URL) {
         let string = url.absoluteString
-        if !string.contains(Constants.baseUrl) { return nil }
+        guard string.contains(Constants.baseUrl) else { return nil }
         
         let trimmed = string.replacingOccurrences(of: Constants.baseUrl + "/", with: "")
         if trimmed.contains("/") {
             let components = trimmed.components(separatedBy: "/")
-            if !components.isEmpty {
-                let endPointString = components[0]
-                var pathComponents: [String] = []
-                if components.count > 1 {
-                    pathComponents = components
-                    pathComponents.removeFirst()
-                }
-                if let rmEndPoint = WTEndpoint(rawValue: endPointString) {
-                    self.init(endPoint: rmEndPoint, pathComponents: pathComponents)
-                    return
-                }
+            guard !components.isEmpty else { return nil }
+            let endPointString = components[0]
+            var pathComponents: [String] = []
+            if components.count > 1 {
+                pathComponents = components
+                pathComponents.removeFirst()
             }
+            guard let wtEndPoint = WTEndpoint(rawValue: endPointString) else { return nil }
+            self.init(endPoint: wtEndPoint, pathComponents: pathComponents)
         } else if trimmed.contains("?") {
             let components = trimmed.components(separatedBy: "?")
-            if !components.isEmpty {
-                let endPointString = components[0]
-                let queryItems: [URLQueryItem] = components[1].split(separator: "&").compactMap({
-                    guard $0.contains("=") else { return nil }
-                    
-                    let parts = $0.components(separatedBy: "=")
-                    return URLQueryItem(name: parts[0], value: parts[1])
-                })
+            guard !components.isEmpty else { return nil }
+            let endPointString = components[0]
+            let queryItems: [URLQueryItem] = components[1].split(separator: "&").compactMap {
+                guard $0.contains("=") else { return nil }
                 
-                if let wtEndPoint = WTEndpoint(rawValue: endPointString) {
-                    self.init(endPoint: wtEndPoint, queryParameters: queryItems)
-                    return
-                }
+                let parts = $0.components(separatedBy: "=")
+                return URLQueryItem(name: parts[0], value: parts[1])
             }
+            
+            guard let wtEndPoint = WTEndpoint(rawValue: endPointString) else { return nil }
+            self.init(endPoint: wtEndPoint, queryParameters: queryItems)
+        } else {
+            return nil
         }
-        
-        return nil
     }
 }
 

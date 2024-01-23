@@ -9,6 +9,5 @@ import Foundation
 
 /// Represents unique API Endpoint
 @frozen enum WTEndpoint: String, CaseIterable, Hashable {
-    case token
-    case refreshToken
+    case me
 }
