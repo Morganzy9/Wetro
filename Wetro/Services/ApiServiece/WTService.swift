@@ -5,7 +5,8 @@
 //  Created by Ислам Пулатов on 12/18/23.
 //
 
-import UIKit
+import Foundation
+import Combine
 
 enum WTServiceError: Error {
     case failedToCreateRequest
@@ -26,37 +27,25 @@ final class WTService {
     ///   - request:  Request instance
     ///   - type: Type of object that returns
     ///   - completion:  Return Data or Error
-    public func execute<T: Codable>(_ request: WTRequest, expecting type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func execute<T: Codable>(_ request: WTRequest, expecting type: T.Type) -> AnyPublisher<T, Error> {
         guard let urlRequest = self.request(from: request) else {
-            completion(.failure(WTServiceError.failedToCreateRequest))
-            return
+            return Fail(error: WTServiceError.failedToCreateRequest)
+                .eraseToAnyPublisher()
         }
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            
-            guard let data = data, error == nil else {
-                completion(.failure(error ?? WTServiceError.failedToGetData))
-                return
-            }
-            
-            // Decode response
-            do {
-                let result = try JSONDecoder().decode(type.self, from: data)
-                completion(.success(result))
-            } catch {
-                completion(.failure(error))
-            }
-            
-        }
-        task.resume()
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     //  MARK: - Private
     
-    private func request(from rmRequest: WTRequest) -> URLRequest? {
-        guard let url = rmRequest.url else { return nil }
+    private func request(from wtRequest: WTRequest) -> URLRequest? {
+        guard let url = wtRequest.url else { return nil }
         var request = URLRequest(url: url)
-        request.httpMethod = rmRequest.httpMethod
+        request.httpMethod = wtRequest.httpMethod
         
         return request
     }

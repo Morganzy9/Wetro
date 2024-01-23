@@ -72,7 +72,6 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTFirstSectionDataCollectionViewCell
-        cell.backgroundColor = .red
         cell.configure(with: "ONLY YOU")
         return cell
     }

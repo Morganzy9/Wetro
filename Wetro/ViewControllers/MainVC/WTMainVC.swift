@@ -52,7 +52,7 @@ extension WTMainVC {
         mainView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(topOffset)
             make.leading.trailing.equalToSuperview()
-            if let tabBarHeight = tabBarController?.tabBar.frame.height {
+            if (tabBarController?.tabBar.frame.height) != nil {
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
             }
         }

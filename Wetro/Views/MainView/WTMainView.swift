@@ -74,7 +74,6 @@ extension WTMainView {
         }
     }
     
-    
     private func setDelegates() {
         guard let mainlCollectionView = mainlCollectionView else { return }
         mainlCollectionView.delegate = viewModel
