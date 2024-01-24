@@ -12,7 +12,7 @@ final class MainCoordinator: Coordinator {
     var navigationController: UINavigationController?
     
     func start() {
-        if AuthManager.shared.isSignedIn {
+        if WTAuthManager.shared.isSignedIn {
             let vc = WTTabBarController()
             vc.coordinator = self
             vc.title = "MainVC"

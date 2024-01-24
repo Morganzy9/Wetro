@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum PersistenceActionType {
+enum WTPersistenceActionType {
     case add, remove
 }
 
-enum PersistenceManager {
+enum WTPersistenceManager {
     static private let defaults = UserDefaults.standard
     
     static func retrieveAccessToken() -> String? {

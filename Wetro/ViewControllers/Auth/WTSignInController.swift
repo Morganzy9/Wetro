@@ -52,7 +52,7 @@ extension WTSignInController: WKNavigationDelegate {
             make.edges.equalToSuperview()
         }
         
-        guard let authUrl = AuthManager.shared.signInURL else { return }
+        guard let authUrl = WTAuthManager.shared.signInURL else { return }
         signWebView.load(URLRequest(url: authUrl))
     }
 
@@ -67,7 +67,7 @@ extension WTSignInController: WKNavigationDelegate {
         guard let code = component?.queryItems?.first(where: { $0.name == "code" })?.value else { return }
         signWebView.isHidden = true
         
-        AuthManager.shared.exchangeCodeForToken(code: code) { [weak self] success in
+        WTAuthManager.shared.exchangeCodeForToken(code: code) { [weak self] success in
             guard success else { return }
             guard let self = self else { return }
             DispatchQueue.main.async {

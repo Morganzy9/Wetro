@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class AuthManager {
+final class WTAuthManager {
     
-    static let shared = AuthManager()
+    static let shared = WTAuthManager()
     
     private init() {}
     
@@ -36,11 +36,11 @@ final class AuthManager {
     //  MARK: - Closures
     
     var isSignedIn: Bool {
-        return PersistenceManager.retrieveAccessToken() != nil
+        return WTPersistenceManager.retrieveAccessToken() != nil
     }
     
     var shouldRefreshToken: Bool {
-        guard let expirationDateString = PersistenceManager.retrieveRefreshToken() else { return false}
+        guard let expirationDateString = WTPersistenceManager.retrieveRefreshToken() else { return false}
         guard let expirationDate = dateFormatter.date(from: expirationDateString) else {
             return false
         }
@@ -70,7 +70,7 @@ final class AuthManager {
             return
         }
         
-        guard let refreshToken = PersistenceManager.retrieveRefreshToken() else { return }
+        guard let refreshToken = WTPersistenceManager.retrieveRefreshToken() else { return }
         
         let components = [
             URLQueryItem(name: "grant_type", value: "refresh_token"),
@@ -117,10 +117,10 @@ final class AuthManager {
     }
     
     private func cacheToken(token: WTToken) {
-        PersistenceManager.saveAccessToken(accessToken: token.accessToken)
-        PersistenceManager.saveExpirationDateOfToken(expirationTime: token.expiresIn)
+        WTPersistenceManager.saveAccessToken(accessToken: token.accessToken)
+        WTPersistenceManager.saveExpirationDateOfToken(expirationTime: token.expiresIn)
         if let refreshToken = token.refreshToken {
-            PersistenceManager.saveRefreshToken(refreshToken: refreshToken)
+            WTPersistenceManager.saveRefreshToken(refreshToken: refreshToken)
         }
     }
 }
