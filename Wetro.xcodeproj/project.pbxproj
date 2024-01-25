@@ -16,6 +16,7 @@
 		160996FC2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996FB2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift */; };
 		160997002B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */; };
 		161731942B623BEE00A3608A /* RecentlySongsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161731932B623BEE00A3608A /* RecentlySongsModel.swift */; };
+		161731982B62D5B100A3608A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161731972B62D5B100A3608A /* Album.swift */; };
 		168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0742B29D66C003ACA9D /* AppDelegate.swift */; };
 		168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0762B29D66C003ACA9D /* SceneDelegate.swift */; };
 		168AC0792B29D66C003ACA9D /* WTOnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* WTOnBoardingVC.swift */; };
@@ -46,6 +47,7 @@
 		160996FB2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTSecondSectionDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFirstSectionDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		161731932B623BEE00A3608A /* RecentlySongsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlySongsModel.swift; sourceTree = "<group>"; };
+		161731972B62D5B100A3608A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		168AC0712B29D66C003ACA9D /* Wetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC0742B29D66C003ACA9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC0762B29D66C003ACA9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 			path = SecondSection;
 			sourceTree = "<group>";
 		};
+		161731992B62D5CE00A3608A /* BasicResponseElements */ = {
+			isa = PBXGroup;
+			children = (
+				161731972B62D5B100A3608A /* Album.swift */,
+			);
+			path = BasicResponseElements;
+			sourceTree = "<group>";
+		};
 		161EABF72B29DE9200522B14 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 		161EABF92B29DEC500522B14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				161731992B62D5CE00A3608A /* BasicResponseElements */,
 				16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */,
 				161731932B623BEE00A3608A /* RecentlySongsModel.swift */,
 			);
@@ -375,6 +386,7 @@
 				160997002B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift in Sources */,
 				16C339B62B2AEFAE00BC74E3 /* MainCoordinator.swift in Sources */,
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
+				161731982B62D5B100A3608A /* Album.swift in Sources */,
 				160996FA2B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
