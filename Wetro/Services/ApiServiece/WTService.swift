@@ -34,11 +34,16 @@ final class WTService {
         }
         
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
-            .map(\.data)
+            .map { data, response in
+                // Print raw data here before decoding
+                print("Raw data: \(String(data: data, encoding: .utf8) ?? "DEFAULT")")
+                return data
+            }
             .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
     
     //  MARK: - Private
     
@@ -46,6 +51,9 @@ final class WTService {
         guard let url = wtRequest.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = wtRequest.httpMethod
+        wtRequest.headers.forEach { key, value in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
         
         return request
     }

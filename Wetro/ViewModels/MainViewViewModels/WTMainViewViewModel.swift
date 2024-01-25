@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -16,6 +17,7 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
     }
     
     let sections = SectionType.allCases
+    var cancellables: Set<AnyCancellable> = []
     
     //  MARK: - Public Methods
     
@@ -29,7 +31,47 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
             return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
     }
+    
+    func fetchListenedSongs() {
+        //        if !WTAuthManager.shared.shouldRefreshToken {
+        //
+        //            WTAuthManager.shared.refreshToken { success in
+        //                if !success {
+        //                    print("DEBUG CONSOLE: ERROR NOT SUCCESS")
+        //                    return
+        //                }
+        //            }
+        //        }
+        
+        guard let accessToken = WTPersistenceManager.retrieveAccessToken() else {
+            
+            return
+        }
+        print("DEBUG CONSOLE: \(accessToken)")
+        
+        let pathComponenets = ["player", "recently-played"]
+        
+        // Corrected headers assignment
+        let headers = ["Authorization": "Bearer \(accessToken)"]
+        
+        
+        let request = WTRequest(endPoint: .me,pathComponents: pathComponenets, headers: headers)
 
+        
+        WTService.shared.execute(request, expecting: RecentlySongsModel.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Network request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response.items.count)")
+            })
+            .store(in: &cancellables)
+    }
+    
     //  MARK: - Private Methods
     
     //  MARK: Creating Sections in MainView
@@ -59,7 +101,7 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
         
         return section
     }
-
+    
     
     //  MARK: - MainlCollectionView: MainCollUICollectionViewDelegate, UICollectionViewDataSource
     

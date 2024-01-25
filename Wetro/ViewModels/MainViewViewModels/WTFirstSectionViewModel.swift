@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+final class WTFirstSectionViewModel {
+    
+    private let songName: String
+    
+    init(songName: String) {
+        self.songName = songName
+    }
+    
+    var getSongName: String {
+        return songName
+    }
+    
+}

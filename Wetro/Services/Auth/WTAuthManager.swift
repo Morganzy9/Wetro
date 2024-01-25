@@ -65,7 +65,7 @@ final class WTAuthManager {
     }
 
     func refreshToken(completion: @escaping (Bool) -> Void) {
-        guard shouldRefreshToken else {
+        guard !shouldRefreshToken else {
             completion(true)
             return
         }

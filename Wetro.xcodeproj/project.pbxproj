@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		160996E92B4809C500769DC3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996E82B4809C500769DC3 /* AuthManager.swift */; };
+		160996E92B4809C500769DC3 /* WTAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996E82B4809C500769DC3 /* WTAuthManager.swift */; };
 		160996EC2B4B101100769DC3 /* WTMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996EB2B4B101100769DC3 /* WTMainVC.swift */; };
 		160996EF2B4BDC9000769DC3 /* WTMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996EE2B4BDC9000769DC3 /* WTMainView.swift */; };
 		160996F22B4BECC200769DC3 /* WTMainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996F12B4BECC200769DC3 /* WTMainViewViewModel.swift */; };
@@ -15,11 +15,13 @@
 		160996FA2B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996F92B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift */; };
 		160996FC2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996FB2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift */; };
 		160997002B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */; };
+		161731942B623BEE00A3608A /* RecentlySongsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161731932B623BEE00A3608A /* RecentlySongsModel.swift */; };
 		168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0742B29D66C003ACA9D /* AppDelegate.swift */; };
 		168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0762B29D66C003ACA9D /* SceneDelegate.swift */; };
 		168AC0792B29D66C003ACA9D /* WTOnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC0782B29D66C003ACA9D /* WTOnBoardingVC.swift */; };
 		168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC07F2B29D66D003ACA9D /* LaunchScreen.storyboard */; };
 		16B53E0E2B2B5E63001FA5A2 /* WTSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B53E0D2B2B5E63001FA5A2 /* WTSignInController.swift */; };
+		16B7D9EF2B6176C800911ADF /* WTFirstSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7D9EE2B6176C800911ADF /* WTFirstSectionViewModel.swift */; };
 		16C339AC2B2AE74B00BC74E3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16C339AB2B2AE74B00BC74E3 /* SnapKit */; };
 		16C339AE2B2AE74B00BC74E3 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 16C339AD2B2AE74B00BC74E3 /* SnapKit-Dynamic */; };
 		16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */; };
@@ -30,12 +32,12 @@
 		16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */; };
 		16E68EAA2B31AFC600F8F6CD /* WTOnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EA92B31AFC600F8F6CD /* WTOnBoardingView.swift */; };
 		16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */; };
-		16E68EB02B31FBF400F8F6CD /* PersistenceActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */; };
+		16E68EB02B31FBF400F8F6CD /* WTPersistenceActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAF2B31FBF400F8F6CD /* WTPersistenceActionType.swift */; };
 		16E68EB22B31FCBD00F8F6CD /* WTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		160996E82B4809C500769DC3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		160996E82B4809C500769DC3 /* WTAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTAuthManager.swift; sourceTree = "<group>"; };
 		160996EB2B4B101100769DC3 /* WTMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTMainVC.swift; sourceTree = "<group>"; };
 		160996EE2B4BDC9000769DC3 /* WTMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTMainView.swift; sourceTree = "<group>"; };
 		160996F12B4BECC200769DC3 /* WTMainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTMainViewViewModel.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 		160996F92B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFirstSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		160996FB2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTSecondSectionDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFirstSectionDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		161731932B623BEE00A3608A /* RecentlySongsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlySongsModel.swift; sourceTree = "<group>"; };
 		168AC0712B29D66C003ACA9D /* Wetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC0742B29D66C003ACA9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC0762B29D66C003ACA9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		168AC0802B29D66D003ACA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168AC0822B29D66D003ACA9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16B53E0D2B2B5E63001FA5A2 /* WTSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTSignInController.swift; sourceTree = "<group>"; };
+		16B7D9EE2B6176C800911ADF /* WTFirstSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFirstSectionViewModel.swift; sourceTree = "<group>"; };
 		16C339B12B2AEED500BC74E3 /* WTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTTabBarController.swift; sourceTree = "<group>"; };
 		16C339B32B2AEF1C00BC74E3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		16C339B52B2AEFAE00BC74E3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTEndpoint.swift; sourceTree = "<group>"; };
 		16E68EA92B31AFC600F8F6CD /* WTOnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTOnBoardingView.swift; sourceTree = "<group>"; };
 		16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTToken.swift; sourceTree = "<group>"; };
-		16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceActionType.swift; sourceTree = "<group>"; };
+		16E68EAF2B31FBF400F8F6CD /* WTPersistenceActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTPersistenceActionType.swift; sourceTree = "<group>"; };
 		16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,8 +83,8 @@
 		160996EA2B4B0FE600769DC3 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				16E68EAF2B31FBF400F8F6CD /* PersistenceActionType.swift */,
-				160996E82B4809C500769DC3 /* AuthManager.swift */,
+				16E68EAF2B31FBF400F8F6CD /* WTPersistenceActionType.swift */,
+				160996E82B4809C500769DC3 /* WTAuthManager.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -88,8 +92,8 @@
 		160996ED2B4BDC7500769DC3 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				160996F62B4C614100769DC3 /* Cells */,
 				160996EE2B4BDC9000769DC3 /* WTMainView.swift */,
+				160996F62B4C614100769DC3 /* Cells */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				160996F12B4BECC200769DC3 /* WTMainViewViewModel.swift */,
+				16B7D9EE2B6176C800911ADF /* WTFirstSectionViewModel.swift */,
 			);
 			path = MainViewViewModels;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */,
+				161731932B623BEE00A3608A /* RecentlySongsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				168AC0792B29D66C003ACA9D /* WTOnBoardingVC.swift in Sources */,
+				16B7D9EF2B6176C800911ADF /* WTFirstSectionViewModel.swift in Sources */,
 				16B53E0E2B2B5E63001FA5A2 /* WTSignInController.swift in Sources */,
 				160996F22B4BECC200769DC3 /* WTMainViewViewModel.swift in Sources */,
 				160996F82B4C616300769DC3 /* WTSecondSectionCollectionViewCell.swift in Sources */,
@@ -371,12 +378,13 @@
 				160996FA2B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
-				160996E92B4809C500769DC3 /* AuthManager.swift in Sources */,
+				160996E92B4809C500769DC3 /* WTAuthManager.swift in Sources */,
 				16E68EB22B31FCBD00F8F6CD /* WTConstants.swift in Sources */,
 				16E68EA22B30A36700F8F6CD /* WTService.swift in Sources */,
 				168AC0772B29D66C003ACA9D /* SceneDelegate.swift in Sources */,
 				160996EF2B4BDC9000769DC3 /* WTMainView.swift in Sources */,
-				16E68EB02B31FBF400F8F6CD /* PersistenceActionType.swift in Sources */,
+				161731942B623BEE00A3608A /* RecentlySongsModel.swift in Sources */,
+				16E68EB02B31FBF400F8F6CD /* WTPersistenceActionType.swift in Sources */,
 				16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */,
 				16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */,
 				160996EC2B4B101100769DC3 /* WTMainVC.swift in Sources */,
