@@ -39,8 +39,8 @@ extension WTFirstSectionDataCollectionViewCell {
         setContrains()
     }
     
-    func configure(with text: String) {
-        titleLabel.text = text
+    func configure(with viewModel: RecentlyPlayedSongs) {
+        titleLabel.text = viewModel.songName
     }
     
     //  MARK: - Private Mathods

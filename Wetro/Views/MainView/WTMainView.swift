@@ -30,7 +30,6 @@ final class WTMainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setView()
-        viewModel.fetchListenedSongs()
     }
     
     required init?(coder: NSCoder) {

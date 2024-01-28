@@ -17,7 +17,7 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
     }
     
     let sections = SectionType.allCases
-    var cancellables: Set<AnyCancellable> = []
+
     
     //  MARK: - Public Methods
     
@@ -29,30 +29,6 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
             return createLayoutSection(with: 300, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), isPagingEnabled: true)
         case .thirdSectionMain:
             return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-        }
-    }
-    
-    func fetchListenedSongs() {
-        
-        WTAuthManager.shared.withValidAccessToken { [self] token in
-            guard let token = token else { return }
-            
-            let pathComponenets = ["player", "recently-played"]
-            let headers = ["Authorization": "Bearer \(token)"]
-            let request = WTRequest(endPoint: .me,pathComponents: pathComponenets, headers: headers)
-
-            WTService.shared.execute(request, expecting: RecentlySongsModel.self)
-                .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        print("Network request completed successfully.")
-                    case .failure(let error):
-                        print("Error: \(error)")
-                    }
-                }, receiveValue: { response in
-                    print("Received response: \(response.items.count)")
-                })
-                .store(in: &cancellables)
         }
     }
     

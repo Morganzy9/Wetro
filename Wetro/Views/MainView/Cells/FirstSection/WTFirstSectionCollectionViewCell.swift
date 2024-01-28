@@ -12,11 +12,14 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private var firstSectionCollectionView: UICollectionView!
+    private let viewModel = FirstSectionViewModel()
+//    private var data: [RecentlyPlayedSongs] = []
     
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        viewModel.fetchListenedSongs()
         configure()
     }
     
@@ -28,6 +31,7 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
     
     func configure() {
+        viewModel.delegate = self
         setupCollectionView()
         addSubViews()
         setConstraints()
@@ -35,7 +39,7 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     
 }
 
-extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FirstSectionViewModelDelegate {
     
     //  MARK: - Private Methods
     
@@ -67,12 +71,12 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     // UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.firstSectionData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTFirstSectionDataCollectionViewCell
-        cell.configure(with: "ONLY YOU")
+        cell.configure(with: viewModel.firstSectionData[indexPath.row])
         return cell
     }
     
@@ -81,5 +85,12 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
+    
+    //  MARK: - FirstSectionViewModelDelegate
+    
+    func didFetchData() {
+        firstSectionCollectionView.reloadData()
+    }
+    
     
 }
