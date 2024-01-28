@@ -70,7 +70,7 @@ final class WTAuthManager {
             return
         }
         
-        if shouldRefreshToken {
+        if !shouldRefreshToken {
             refreshToken { success in
                 if success {
                     completion(WTPersistenceManager.retrieveAccessToken())
@@ -87,11 +87,6 @@ final class WTAuthManager {
     //  MARK: - Private Methods
     
     private func refreshToken(completion: @escaping (Bool) -> Void) {
-        guard !shouldRefreshToken else {
-            completion(true)
-            return
-        }
-        
         guard let refreshToken = WTPersistenceManager.retrieveRefreshToken() else { return }
         
         let components = [
