@@ -26,7 +26,7 @@ final class FirstSectionViewModel {
             let pathComponenets = ["player", "recently-played"]
             let headers = ["Authorization": "Bearer \(token)"]
             let request = WTRequest(endPoint: .me,pathComponents: pathComponenets, headers: headers)
-
+            
             WTService.shared.execute(request, expecting: RecentlySongsModel.self)
                 .sink(receiveCompletion: { completion in
                     switch completion {
@@ -41,7 +41,12 @@ final class FirstSectionViewModel {
                         guard let url = song.track.album.images.first?.url else { return }
                         guard let imageUrl = URL(string: url) else { return }
                         let viewModel = RecentlyPlayedSongs(songName: song.track.name, playedAt: song.playedAt, artistName: artistName, image: imageUrl)
-                        self.firstSectionData.append(viewModel)
+                        
+                        let isElementExists = self.firstSectionData.contains { $0.songName == song.track.name && $0.artistName == artistName }
+                        
+                        if !isElementExists {
+                            self.firstSectionData.append(viewModel)
+                        }
                     }
                     self.delegate?.didFetchData()
                 })
