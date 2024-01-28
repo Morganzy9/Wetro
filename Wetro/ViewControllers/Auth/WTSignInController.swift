@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import WebKit
 
-class WTSignInController: UIViewController, Coordinating {
+final class WTSignInController: UIViewController, Coordinating {
     var coordinator: Coordinator?
 
     //  MARK: - UI

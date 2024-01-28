@@ -12,7 +12,7 @@ protocol LinkAccountViewDelegate: AnyObject {
     func didTapLinkAccountButton()
 }
 
-class WTOnBoardingView: UIView, Coordinating{
+final class WTOnBoardingView: UIView, Coordinating{
     
     var coordinator: Coordinator?
     weak var delegate: LinkAccountViewDelegate?

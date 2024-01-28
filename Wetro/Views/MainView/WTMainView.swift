@@ -30,13 +30,6 @@ final class WTMainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setView()
-        WTAuthManager.shared.refreshToken { success in
-            if success {
-                print("DEBUG CONSOLE: Success")
-            } else {
-                print("DEBUG CONSOLE: NO")
-            }
-        }
         viewModel.fetchListenedSongs()
     }
     

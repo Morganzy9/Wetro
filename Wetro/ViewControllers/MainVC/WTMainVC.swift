@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class WTMainVC: UIViewController {
+final class WTMainVC: UIViewController {
     
     private let mainView = WTMainView()
     

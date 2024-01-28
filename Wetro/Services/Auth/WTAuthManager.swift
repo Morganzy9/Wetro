@@ -63,21 +63,6 @@ final class WTAuthManager {
         ]
         requestToken(with: components, completion: completion)
     }
-
-    func refreshToken(completion: @escaping (Bool) -> Void) {
-        guard !shouldRefreshToken else {
-            completion(true)
-            return
-        }
-        
-        guard let refreshToken = WTPersistenceManager.retrieveRefreshToken() else { return }
-        
-        let components = [
-            URLQueryItem(name: "grant_type", value: "refresh_token"),
-            URLQueryItem(name: "refresh_token", value: refreshToken),
-        ]
-        requestToken(with: components, completion: completion)
-    }
     
     func withValidAccessToken(completion: @escaping (String?) -> Void) {
         guard isSignedIn else {
@@ -100,6 +85,21 @@ final class WTAuthManager {
 
 
     //  MARK: - Private Methods
+    
+    private func refreshToken(completion: @escaping (Bool) -> Void) {
+        guard !shouldRefreshToken else {
+            completion(true)
+            return
+        }
+        
+        guard let refreshToken = WTPersistenceManager.retrieveRefreshToken() else { return }
+        
+        let components = [
+            URLQueryItem(name: "grant_type", value: "refresh_token"),
+            URLQueryItem(name: "refresh_token", value: refreshToken),
+        ]
+        requestToken(with: components, completion: completion)
+    }
     
     private func requestToken(with components: [URLQueryItem], completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: WetroConstants.tokenAPIURL) else { return }
