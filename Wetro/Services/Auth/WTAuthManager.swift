@@ -78,6 +78,26 @@ final class WTAuthManager {
         ]
         requestToken(with: components, completion: completion)
     }
+    
+    func withValidAccessToken(completion: @escaping (String?) -> Void) {
+        guard isSignedIn else {
+            completion(nil)
+            return
+        }
+        
+        if shouldRefreshToken {
+            refreshToken { success in
+                if success {
+                    completion(WTPersistenceManager.retrieveAccessToken())
+                } else {
+                    completion(nil)
+                }
+            }
+        } else {
+            completion(WTPersistenceManager.retrieveAccessToken())
+        }
+    }
+
 
     //  MARK: - Private Methods
     

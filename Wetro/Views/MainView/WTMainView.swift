@@ -33,7 +33,6 @@ final class WTMainView: UIView {
         WTAuthManager.shared.refreshToken { success in
             if success {
                 print("DEBUG CONSOLE: Success")
-//                print("HERE IT IS \(WTPersistenceManager.retrieveAccessToken())")
             } else {
                 print("DEBUG CONSOLE: NO")
             }

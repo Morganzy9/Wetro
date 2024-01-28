@@ -33,43 +33,27 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
     }
     
     func fetchListenedSongs() {
-        //        if !WTAuthManager.shared.shouldRefreshToken {
-        //
-        //            WTAuthManager.shared.refreshToken { success in
-        //                if !success {
-        //                    print("DEBUG CONSOLE: ERROR NOT SUCCESS")
-        //                    return
-        //                }
-        //            }
-        //        }
         
-        guard let accessToken = WTPersistenceManager.retrieveAccessToken() else {
+        WTAuthManager.shared.withValidAccessToken { [self] token in
+            guard let token = token else { return }
             
-            return
-        }
-        print("DEBUG CONSOLE: \(accessToken)")
-        
-        let pathComponenets = ["player", "recently-played"]
-        
-        // Corrected headers assignment
-        let headers = ["Authorization": "Bearer \(accessToken)"]
-        
-        
-        let request = WTRequest(endPoint: .me,pathComponents: pathComponenets, headers: headers)
+            let pathComponenets = ["player", "recently-played"]
+            let headers = ["Authorization": "Bearer \(token)"]
+            let request = WTRequest(endPoint: .me,pathComponents: pathComponenets, headers: headers)
 
-        
-        WTService.shared.execute(request, expecting: RecentlySongsModel.self)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("Network request completed successfully.")
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
-            }, receiveValue: { response in
-                print("Received response: \(response.items.count)")
-            })
-            .store(in: &cancellables)
+            WTService.shared.execute(request, expecting: RecentlySongsModel.self)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        print("Network request completed successfully.")
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
+                }, receiveValue: { response in
+                    print("Received response: \(response.items.count)")
+                })
+                .store(in: &cancellables)
+        }
     }
     
     //  MARK: - Private Methods
