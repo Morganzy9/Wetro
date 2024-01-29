@@ -61,6 +61,15 @@ extension WTFirstSectionDataCollectionViewCell {
         songsName.text = viewModel.songName
         artistname.text = viewModel.artistName
         listenedAt.text = viewModel.playedAt
+        
+        WTImageLoader.shared.downloadImage(viewModel.image) { success in
+            switch success {
+            case .success(let success):
+                print("DEBUG CONSOLE: Success")
+            case .failure(let failure):
+                print("DEBUG CONSOLE: \(failure.localizedDescription)")
+            }
+        }
     }
     
     //  MARK: - Private Mathods

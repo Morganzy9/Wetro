@@ -33,13 +33,14 @@ final class FirstSectionViewModel {
                     case .finished:
                         print("Network request completed successfully.")
                     case .failure(let error):
-                        print("Error: \(error)")
+                        print("Error this: \(error)")
                     }
                 }, receiveValue: { response in
                     for song in response.items {
                         guard let artistName = song.track.artists.first?.name else { return }
                         guard let url = song.track.album.images.first?.url else { return }
                         guard let imageUrl = URL(string: url) else { return }
+                       
                         let viewModel = RecentlyPlayedSongs(songName: song.track.name, playedAt: song.playedAt, artistName: artistName, image: imageUrl)
                         
                         let isElementExists = self.firstSectionData.contains { $0.songName == song.track.name && $0.artistName == artistName }

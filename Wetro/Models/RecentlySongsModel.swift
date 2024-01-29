@@ -25,7 +25,7 @@ struct Cursors: Codable {
 struct Item: Codable {
     let track: Track
     let playedAt: String
-    let context: Context
+    let context: Context?
 
     enum CodingKeys: String, CodingKey {
         case track
