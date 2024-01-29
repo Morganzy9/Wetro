@@ -10,10 +10,28 @@ import UIKit
 class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     //  MARK: - UI
     
-    private let titleLabel: UILabel = {
+    private let songsName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let artistname: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let listenedAt: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let songsImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
 
     //  MARK: - Init
@@ -40,18 +58,34 @@ extension WTFirstSectionDataCollectionViewCell {
     }
     
     func configure(with viewModel: RecentlyPlayedSongs) {
-        titleLabel.text = viewModel.songName
+        songsName.text = viewModel.songName
+        artistname.text = viewModel.artistName
+        listenedAt.text = viewModel.playedAt
     }
     
     //  MARK: - Private Mathods
     
     private func addSubViews() {
-        addSubview(titleLabel)
+        addSubview(songsName)
+        addSubview(artistname)
+        addSubview(listenedAt)
     }
     
     private func setContrains() {
-        titleLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
+        songsName.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        
+        artistname.snp.makeConstraints { make in
+            make.top.equalTo(songsName.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+        }
+        
+        listenedAt.snp.makeConstraints { make in
+            make.top.equalTo(artistname.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            
         }
     }
 }
