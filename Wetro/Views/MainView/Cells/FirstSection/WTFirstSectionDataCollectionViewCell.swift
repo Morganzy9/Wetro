@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
+    
+    //  MARK: - Properties
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     //  MARK: - UI
     
     private let songsName: UILabel = {
@@ -23,7 +29,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     }()
     
     private let listenedAt: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,7 +39,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-
+    
     //  MARK: - Init
     
     override init(frame: CGRect) {
@@ -62,39 +68,48 @@ extension WTFirstSectionDataCollectionViewCell {
         artistname.text = viewModel.artistName
         listenedAt.text = viewModel.playedAt
         
-        WTImageLoader.shared.downloadImage(viewModel.image) { success in
-            switch success {
-            case .success(let success):
-                print("DEBUG CONSOLE: Success")
-            case .failure(let failure):
-                print("DEBUG CONSOLE: \(failure.localizedDescription)")
+        WTImageLoader.shared.downloadImagePublisher(viewModel.image)
+            .receive(on: DispatchQueue.main)
+            .sink { _ in }
+            receiveValue: { [self] imageData in
+                if let image = UIImage(data: imageData) {
+                    songsImage.image = image
+                } else {
+                    print("Failed to create UIImage from downloaded data.")
+                }
             }
-        }
+            .store(in: &cancellables)
+}
+
+//  MARK: - Private Mathods
+
+private func addSubViews() {
+    addSubview(songsName)
+    addSubview(artistname)
+    addSubview(listenedAt)
+    addSubview(songsImage)
+}
+
+private func setContrains() {
+    songsName.snp.makeConstraints { make in
+        make.top.equalToSuperview()
+        make.centerX.equalToSuperview()
     }
     
-    //  MARK: - Private Mathods
-    
-    private func addSubViews() {
-        addSubview(songsName)
-        addSubview(artistname)
-        addSubview(listenedAt)
+    artistname.snp.makeConstraints { make in
+        make.top.equalTo(songsName.snp.bottom).offset(10)
+        make.centerX.equalToSuperview()
     }
     
-    private func setContrains() {
-        songsName.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.centerX.equalToSuperview()
-        }
-        
-        artistname.snp.makeConstraints { make in
-            make.top.equalTo(songsName.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-        }
-        
-        listenedAt.snp.makeConstraints { make in
-            make.top.equalTo(artistname.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            
-        }
+    listenedAt.snp.makeConstraints { make in
+        make.top.equalTo(artistname.snp.bottom).offset(10)
+        make.centerX.equalToSuperview()
     }
+    
+    songsImage.snp.makeConstraints { make in
+        make.top.equalTo(listenedAt.snp.bottom).offset(10)
+        make.centerX.equalToSuperview()
+        make.height.width.equalTo(50)
+    }
+}
 }

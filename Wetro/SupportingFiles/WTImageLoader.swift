@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class WTImageLoader {
     
@@ -15,31 +16,33 @@ final class WTImageLoader {
     
     private var imageDataCache = NSCache<NSString, NSData>()
     
-    
-    
     /// Get image content URL
     /// - Parameters:
     ///   - url: source URL
-    ///   - completion: CallBack
-    func downloadImage(_ url: URL, completion: @escaping(Result<Data, Error>) -> Void) {
+    /// - Returns: Publisher emitting the loaded image data or an error
+    func downloadImagePublisher(_ url: URL) -> AnyPublisher<Data, Error> {
         let key = url.absoluteString as NSString
         
         if let data = imageDataCache.object(forKey: key) {
-            completion(.success(data as Data))
-            return
+            return Just(data as Data)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
         }
         
-        let urlRequest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            guard let data = data, error == nil else {
-                completion(.failure(error ?? URLError(.badServerResponse)))
-                return
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse,
+                      200..<300 ~= httpResponse.statusCode else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
             }
-            let value = data as NSData
-            self.imageDataCache.setObject(value, forKey: key )
-            completion(.success(data))
-        }
-        task.resume()
+            .tryMap { data in
+                let value = data as NSData
+                self.imageDataCache.setObject(value, forKey: key)
+                return data
+            }
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
     }
-    
 }
