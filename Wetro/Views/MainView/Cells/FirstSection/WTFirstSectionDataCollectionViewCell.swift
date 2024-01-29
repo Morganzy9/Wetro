@@ -71,45 +71,50 @@ extension WTFirstSectionDataCollectionViewCell {
         WTImageLoader.shared.downloadImagePublisher(viewModel.image)
             .receive(on: DispatchQueue.main)
             .sink { _ in }
-            receiveValue: { [self] imageData in
-                if let image = UIImage(data: imageData) {
-                    songsImage.image = image
-                } else {
-                    print("Failed to create UIImage from downloaded data.")
-                }
-            }
-            .store(in: &cancellables)
-}
-
-//  MARK: - Private Mathods
-
-private func addSubViews() {
-    addSubview(songsName)
-    addSubview(artistname)
-    addSubview(listenedAt)
-    addSubview(songsImage)
-}
-
-private func setContrains() {
-    songsName.snp.makeConstraints { make in
-        make.top.equalToSuperview()
-        make.centerX.equalToSuperview()
+    receiveValue: { [self] imageData in
+        if let image = UIImage(data: imageData) {
+            songsImage.image = image
+        } else {
+            print("Failed to create UIImage from downloaded data.")
+        }
+    }
+    .store(in: &cancellables)
     }
     
-    artistname.snp.makeConstraints { make in
-        make.top.equalTo(songsName.snp.bottom).offset(10)
-        make.centerX.equalToSuperview()
+    //  MARK: - Private Mathods
+    
+    private func addSubViews() {
+        addSubview(songsName)
+        addSubview(artistname)
+        addSubview(listenedAt)
+        addSubview(songsImage)
     }
     
-    listenedAt.snp.makeConstraints { make in
-        make.top.equalTo(artistname.snp.bottom).offset(10)
-        make.centerX.equalToSuperview()
+    private func setContrains() {
+        
+        let widthView = bounds.width
+        let heightView = bounds.height
+        
+        songsImage.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(widthView / 6)
+            make.centerY.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(2.5)
+            make.width.equalToSuperview().dividedBy(4)
+        }
+        
+        songsName.snp.makeConstraints { make in
+            make.leading.equalTo(songsImage.snp.trailing).offset(10)
+            make.centerY.equalToSuperview().offset(-25)
+        }
+        
+        artistname.snp.makeConstraints { make in
+            make.top.equalTo(songsName.snp.bottom).offset(10)
+            make.leading.equalTo(songsImage.snp.trailing).offset(10)
+        }
+        
+        listenedAt.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+        }
     }
-    
-    songsImage.snp.makeConstraints { make in
-        make.top.equalTo(listenedAt.snp.bottom).offset(10)
-        make.centerX.equalToSuperview()
-        make.height.width.equalTo(50)
-    }
-}
 }
