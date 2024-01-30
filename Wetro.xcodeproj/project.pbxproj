@@ -39,6 +39,8 @@
 		16E68EB22B31FCBD00F8F6CD /* WTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */; };
 		16F208D52B694F6F007FF8AF /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16F208D42B694F6F007FF8AF /* DelaGothicOne-Regular.ttf */; };
 		16F208DC2B695105007FF8AF /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F208DB2B695105007FF8AF /* UIFont.swift */; };
+		16F208E32B695A77007FF8AF /* Poppins-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16F208E22B695A77007FF8AF /* Poppins-SemiBold.otf */; };
+		16F208E52B695AA6007FF8AF /* Poppins-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16F208E42B695AA6007FF8AF /* Poppins-SemiBoldItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTConstants.swift; sourceTree = "<group>"; };
 		16F208D42B694F6F007FF8AF /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
 		16F208DB2B695105007FF8AF /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		16F208E22B695A77007FF8AF /* Poppins-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.otf"; sourceTree = "<group>"; };
+		16F208E42B695AA6007FF8AF /* Poppins-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,7 +336,9 @@
 		16F208DD2B695134007FF8AF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				16F208E22B695A77007FF8AF /* Poppins-SemiBold.otf */,
 				16F208D42B694F6F007FF8AF /* DelaGothicOne-Regular.ttf */,
+				16F208E42B695AA6007FF8AF /* Poppins-SemiBoldItalic.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -402,8 +408,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F208E52B695AA6007FF8AF /* Poppins-SemiBoldItalic.otf in Resources */,
 				16F208D52B694F6F007FF8AF /* DelaGothicOne-Regular.ttf in Resources */,
 				168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */,
+				16F208E32B695A77007FF8AF /* Poppins-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

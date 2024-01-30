@@ -36,12 +36,14 @@ final class FirstSectionViewModel {
                     }
                 }, receiveValue: { response in
                     for song in response.items {
+                        
+                        let songsName = self.truncateSongName(song.track.name)
                         guard let artistName = song.track.artists.first?.name else { return }
                         guard let url = song.track.album.images.first?.url else { return }
                         guard let imageUrl = URL(string: url) else { return }
                         guard let playedAt = self.formatDate(song.playedAt) else { return }
                        
-                        let viewModel = RecentlyPlayedSongs(songName: song.track.name, playedAt: playedAt, artistName: artistName, image: imageUrl)
+                        let viewModel = RecentlyPlayedSongs(songName: songsName, playedAt: playedAt, artistName: artistName, image: imageUrl)
                         
                         let isElementExists = self.firstSectionData.contains { $0.songName == song.track.name && $0.artistName == artistName }
                         
@@ -64,6 +66,15 @@ final class FirstSectionViewModel {
             return dateFormatter.string(from: date)
         } else {
             return nil
+        }
+    }
+    
+    private func truncateSongName(_ songName: String) -> String {
+        let words = songName.components(separatedBy: " ")
+        if words.count > 3 {
+            return words.prefix(3).joined(separator: " ") + " ..."
+        } else {
+            return songName
         }
     }
 

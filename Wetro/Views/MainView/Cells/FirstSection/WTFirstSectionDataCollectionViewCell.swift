@@ -13,25 +13,30 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     //  MARK: - Properties
     
     private var cancellables = Set<AnyCancellable>()
+    private let imageLoader = WTImageLoader.shared
     
     //  MARK: - UI
     
     private let songsName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = .variableFontWght24()
+        label.textColor = .white
+        label.font = .poppinsSemiBoldItalic(of: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let artistname: UILabel = {
         let label = UILabel()
+        label.textColor = .white
+        label.font = .poppinsSemiBold(of: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let listenedAt: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,7 +55,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .blue
+        backgroundColor = .black
     }
     
     
@@ -67,8 +72,8 @@ extension WTFirstSectionDataCollectionViewCell {
         songsName.text = viewModel.songName
         artistname.text = viewModel.artistName
         listenedAt.text = viewModel.playedAt
-        print("DEBUG CONSOLE: \(viewModel.playedAt)")
-        WTImageLoader.shared.downloadImagePublisher(viewModel.image)
+        
+        imageLoader.downloadImagePublisher(viewModel.image)
             .receive(on: DispatchQueue.main)
             .sink { _ in
             } receiveValue: { [self] imageData in
@@ -99,19 +104,18 @@ extension WTFirstSectionDataCollectionViewCell {
     
     private func setContrains() {
         
-        let widthView = bounds.width
-        
         songsImage.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(widthView / 6)
+            make.leading.equalToSuperview().offset(bounds.width / 6)
             make.centerY.equalToSuperview()
             make.height.equalToSuperview().dividedBy(2.5)
             make.width.equalToSuperview().dividedBy(4)
         }
         
         songsName.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(bounds.height / 3)
             make.leading.equalTo(songsImage.snp.trailing).offset(10)
             make.trailing.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-25)
+            make.height.equalTo(25)
         }
         
         artistname.snp.makeConstraints { make in
@@ -123,5 +127,6 @@ extension WTFirstSectionDataCollectionViewCell {
             make.top.equalToSuperview().offset(10 )
             make.trailing.equalToSuperview().offset(-10)
         }
+        
     }
 }
