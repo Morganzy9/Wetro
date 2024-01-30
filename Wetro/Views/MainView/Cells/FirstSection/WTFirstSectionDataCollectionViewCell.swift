@@ -36,9 +36,25 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     private let listenedAt: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
+        label.backgroundColor = .white
+        label.layer.cornerRadius = 5
+        label.layer.masksToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let songsImageContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.white.cgColor
+        view.layer.shadowOpacity = 0.8
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.layer.shadowRadius = 5
+        view.layer.masksToBounds = false
+        return view
     }()
     
     private let songsImage: UIImageView = {
@@ -49,7 +65,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
         image.clipsToBounds = true
         return image
     }()
-
+    
     
     //  MARK: - Init
     
@@ -77,12 +93,12 @@ extension WTFirstSectionDataCollectionViewCell {
             .receive(on: DispatchQueue.main)
             .sink { _ in
             } receiveValue: { [self] imageData in
-                    if let image = UIImage(data: imageData) {
-                        songsImage.image = image
-                    } else {
-                        print("Failed to create UIImage from downloaded data.")
-                    }
+                if let image = UIImage(data: imageData) {
+                    songsImage.image = image
+                } else {
+                    print("Failed to create UIImage from downloaded data.")
                 }
+            }
             .store(in: &cancellables)
         
         setCell()
@@ -99,16 +115,22 @@ extension WTFirstSectionDataCollectionViewCell {
         addSubview(songsName)
         addSubview(artistname)
         addSubview(listenedAt)
-        addSubview(songsImage)
+        addSubview(songsImageContainer)
+        songsImageContainer.addSubview(songsImage)
+        //        addSubview(songsImage)
     }
     
     private func setContrains() {
         
-        songsImage.snp.makeConstraints { make in
+        songsImageContainer.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(bounds.width / 6)
             make.centerY.equalToSuperview()
             make.height.equalToSuperview().dividedBy(2.5)
             make.width.equalToSuperview().dividedBy(4)
+        }
+        
+        songsImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         songsName.snp.makeConstraints { make in
