@@ -37,6 +37,8 @@
 		16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */; };
 		16E68EB02B31FBF400F8F6CD /* WTPersistenceActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EAF2B31FBF400F8F6CD /* WTPersistenceActionType.swift */; };
 		16E68EB22B31FCBD00F8F6CD /* WTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */; };
+		16F208D52B694F6F007FF8AF /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16F208D42B694F6F007FF8AF /* DelaGothicOne-Regular.ttf */; };
+		16F208DC2B695105007FF8AF /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F208DB2B695105007FF8AF /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTToken.swift; sourceTree = "<group>"; };
 		16E68EAF2B31FBF400F8F6CD /* WTPersistenceActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTPersistenceActionType.swift; sourceTree = "<group>"; };
 		16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTConstants.swift; sourceTree = "<group>"; };
+		16F208D42B694F6F007FF8AF /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
+		16F208DB2B695105007FF8AF /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +245,7 @@
 		168645FC2B2A083C009C028A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				16F208DD2B695134007FF8AF /* Fonts */,
 				16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */,
 			);
 			path = Utils;
@@ -282,6 +287,7 @@
 				161EABFB2B29DEE000522B14 /* ViewModels */,
 				161EABFA2B29DED100522B14 /* ViewControllers */,
 				166D6E5F2B68028F002CEDB0 /* SupportingFiles */,
+				16F208DA2B6950EC007FF8AF /* Extension */,
 				168645FC2B2A083C009C028A /* Utils */,
 				161EABFC2B29DEFA00522B14 /* Resources */,
 			);
@@ -313,6 +319,22 @@
 				16E68EA52B30A37F00F8F6CD /* WTEndpoint.swift */,
 			);
 			path = ApiServiece;
+			sourceTree = "<group>";
+		};
+		16F208DA2B6950EC007FF8AF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16F208DB2B695105007FF8AF /* UIFont.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		16F208DD2B695134007FF8AF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				16F208D42B694F6F007FF8AF /* DelaGothicOne-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F208D52B694F6F007FF8AF /* DelaGothicOne-Regular.ttf in Resources */,
 				168AC0812B29D66D003ACA9D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +438,7 @@
 				16E68EB02B31FBF400F8F6CD /* WTPersistenceActionType.swift in Sources */,
 				16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */,
 				16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */,
+				16F208DC2B695105007FF8AF /* UIFont.swift in Sources */,
 				160996EC2B4B101100769DC3 /* WTMainVC.swift in Sources */,
 				160996FC2B4DB10B00769DC3 /* WTSecondSectionDataCollectionViewCell.swift in Sources */,
 				16E68EA62B30A37F00F8F6CD /* WTEndpoint.swift in Sources */,

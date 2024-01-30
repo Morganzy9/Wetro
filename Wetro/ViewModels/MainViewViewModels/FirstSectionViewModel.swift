@@ -55,7 +55,7 @@ final class FirstSectionViewModel {
         }
     }
     
-    func formatDate(_ dateString: String) -> String? {
+    private func formatDate(_ dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         

@@ -19,6 +19,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     private let songsName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
+        label.font = .variableFontWght24()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -38,14 +39,17 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     private let songsImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         return image
     }()
+
     
     //  MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setCell()
         backgroundColor = .blue
     }
     
@@ -58,11 +62,6 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
 extension WTFirstSectionDataCollectionViewCell {
     
     //  MARK: - Methods
-    
-    func setCell() {
-        addSubViews()
-        setContrains()
-    }
     
     func configure(with viewModel: RecentlyPlayedSongs) {
         songsName.text = viewModel.songName
@@ -80,6 +79,13 @@ extension WTFirstSectionDataCollectionViewCell {
                     }
                 }
             .store(in: &cancellables)
+        
+        setCell()
+    }
+    
+    private func setCell() {
+        addSubViews()
+        setContrains()
     }
     
     //  MARK: - Private Mathods
