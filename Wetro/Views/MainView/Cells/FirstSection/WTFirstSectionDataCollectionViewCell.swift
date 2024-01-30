@@ -18,6 +18,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     private let songsName: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -67,18 +68,18 @@ extension WTFirstSectionDataCollectionViewCell {
         songsName.text = viewModel.songName
         artistname.text = viewModel.artistName
         listenedAt.text = viewModel.playedAt
-        
+        print("DEBUG CONSOLE: \(viewModel.playedAt)")
         WTImageLoader.shared.downloadImagePublisher(viewModel.image)
             .receive(on: DispatchQueue.main)
-            .sink { _ in }
-    receiveValue: { [self] imageData in
-        if let image = UIImage(data: imageData) {
-            songsImage.image = image
-        } else {
-            print("Failed to create UIImage from downloaded data.")
-        }
-    }
-    .store(in: &cancellables)
+            .sink { _ in
+            } receiveValue: { [self] imageData in
+                    if let image = UIImage(data: imageData) {
+                        songsImage.image = image
+                    } else {
+                        print("Failed to create UIImage from downloaded data.")
+                    }
+                }
+            .store(in: &cancellables)
     }
     
     //  MARK: - Private Mathods
@@ -93,7 +94,6 @@ extension WTFirstSectionDataCollectionViewCell {
     private func setContrains() {
         
         let widthView = bounds.width
-        let heightView = bounds.height
         
         songsImage.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(widthView / 6)
@@ -104,6 +104,7 @@ extension WTFirstSectionDataCollectionViewCell {
         
         songsName.snp.makeConstraints { make in
             make.leading.equalTo(songsImage.snp.trailing).offset(10)
+            make.trailing.equalToSuperview()
             make.centerY.equalToSuperview().offset(-25)
         }
         
@@ -113,7 +114,7 @@ extension WTFirstSectionDataCollectionViewCell {
         }
         
         listenedAt.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(10 )
             make.trailing.equalToSuperview().offset(-10)
         }
     }

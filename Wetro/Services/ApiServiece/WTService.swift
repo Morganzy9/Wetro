@@ -35,8 +35,6 @@ final class WTService {
         
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .map { data, response in
-                // Print raw data here before decoding
-                print("Raw data: \(String(data: data, encoding: .utf8) ?? "DEFAULT")")
                 return data
             }
             .decode(type: T.self, decoder: JSONDecoder())

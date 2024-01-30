@@ -30,8 +30,7 @@ final class FirstSectionViewModel {
             WTService.shared.execute(request, expecting: RecentlySongsModel.self)
                 .sink(receiveCompletion: { completion in
                     switch completion {
-                    case .finished:
-                        print("Network request completed successfully.")
+                    case .finished: break
                     case .failure(let error):
                         print("Error this: \(error)")
                     }
@@ -40,8 +39,9 @@ final class FirstSectionViewModel {
                         guard let artistName = song.track.artists.first?.name else { return }
                         guard let url = song.track.album.images.first?.url else { return }
                         guard let imageUrl = URL(string: url) else { return }
+                        guard let playedAt = self.formatDate(song.playedAt) else { return }
                        
-                        let viewModel = RecentlyPlayedSongs(songName: song.track.name, playedAt: song.playedAt, artistName: artistName, image: imageUrl)
+                        let viewModel = RecentlyPlayedSongs(songName: song.track.name, playedAt: playedAt, artistName: artistName, image: imageUrl)
                         
                         let isElementExists = self.firstSectionData.contains { $0.songName == song.track.name && $0.artistName == artistName }
                         
@@ -55,4 +55,16 @@ final class FirstSectionViewModel {
         }
     }
     
+    func formatDate(_ dateString: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = dateFormatter.date(from: dateString) {
+            dateFormatter.dateFormat = "MMM dd, HH:mm"
+            return dateFormatter.string(from: date)
+        } else {
+            return nil
+        }
+    }
+
 }
