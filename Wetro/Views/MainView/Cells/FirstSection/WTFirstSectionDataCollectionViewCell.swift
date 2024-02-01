@@ -21,7 +21,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.textColor = .white
-        label.font = .poppinsSemiBoldItalic(of: 22)
+        label.font = .poppinsSemiBoldItalic(of: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -29,7 +29,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     private let artistname: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .poppinsSemiBold(of: 16)
+        label.font = .poppinsSemiBold(of: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

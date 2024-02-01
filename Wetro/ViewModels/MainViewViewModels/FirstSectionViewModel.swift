@@ -71,7 +71,7 @@ final class FirstSectionViewModel {
     
     private func truncateSongName(_ songName: String) -> String {
         let words = songName.components(separatedBy: " ")
-        if words.count > 3 {
+        if words.count > 5 {
             return words.prefix(3).joined(separator: " ") + " ..."
         } else {
             return songName
