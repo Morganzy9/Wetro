@@ -76,7 +76,6 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     private func setConstraints() {
         
         spinner.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
             make.centerX.centerY.equalToSuperview()
         }
         
