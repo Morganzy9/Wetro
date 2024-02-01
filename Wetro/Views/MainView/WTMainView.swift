@@ -18,13 +18,6 @@ final class WTMainView: UIView {
     
     private var mainlCollectionView: UICollectionView?
     
-    private let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView()
-        spinner.hidesWhenStopped = true
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        return spinner
-    }()
-    
     //  MARK: - Init
     
     override init(frame: CGRect) {
@@ -57,18 +50,12 @@ extension WTMainView {
     
     private func addSubViews() {
         guard let mainlCollectionView = mainlCollectionView else { return }
-        addSubview(spinner)
         addSubview(mainlCollectionView)
     }
     
     private func setConstrains() {
         guard let mainlCollectionView = mainlCollectionView else { return }
-        
-        spinner.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.centerX.centerY.equalToSuperview()
-        }
-        
+                
         mainlCollectionView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
         }

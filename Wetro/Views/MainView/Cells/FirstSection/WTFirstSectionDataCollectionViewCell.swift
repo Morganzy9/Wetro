@@ -117,7 +117,6 @@ extension WTFirstSectionDataCollectionViewCell {
         addSubview(listenedAt)
         addSubview(songsImageContainer)
         songsImageContainer.addSubview(songsImage)
-        //        addSubview(songsImage)
     }
     
     private func setContrains() {

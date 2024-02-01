@@ -13,14 +13,23 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     
     private var firstSectionCollectionView: UICollectionView!
     private let viewModel = FirstSectionViewModel()
-//    private var data: [RecentlyPlayedSongs] = []
+    
+    //  MARK: - UI
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.hidesWhenStopped = true
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        viewModel.fetchListenedSongs()
         configure()
+        viewModel.fetchListenedSongs()
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +44,7 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
         setupCollectionView()
         addSubViews()
         setConstraints()
+        spinner.startAnimating()
     }
     
 }
@@ -59,10 +69,17 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     }
     
     private func addSubViews() {
+        addSubview(spinner)
         addSubview(firstSectionCollectionView)
     }
     
     private func setConstraints() {
+        
+        spinner.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.centerY.equalToSuperview()
+        }
+        
         firstSectionCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -89,6 +106,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     //  MARK: - FirstSectionViewModelDelegate
     
     func didFetchData() {
+        spinner.stopAnimating()
         firstSectionCollectionView.reloadData()
     }
     
