@@ -73,6 +73,7 @@ extension WTMainView {
         let collectionView = createMainCollectionView()
         collectionView.showsVerticalScrollIndicator = false
         mainlCollectionView = collectionView
+        mainlCollectionView?.backgroundColor = WTAppearance.backGround
     }
     
     private func createMainCollectionView() -> UICollectionView {

@@ -67,7 +67,7 @@ struct Track: Codable {
     let isLocal: Bool
     let name: String
     let popularity: Int
-    let previewURL: String
+    let previewURL: String?
     let trackNumber: Int
     let type, uri: String
 

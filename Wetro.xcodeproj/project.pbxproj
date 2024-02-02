@@ -17,6 +17,7 @@
 		160997002B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */; };
 		161731942B623BEE00A3608A /* RecentlySongsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161731932B623BEE00A3608A /* RecentlySongsModel.swift */; };
 		161731982B62D5B100A3608A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161731972B62D5B100A3608A /* Album.swift */; };
+		16352CDF2B6D6AB500BC0AE9 /* WTAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */; };
 		166D6E612B6802A3002CEDB0 /* WTImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166D6E602B6802A3002CEDB0 /* WTImageLoader.swift */; };
 		167FE4DF2B6670FF00C22D13 /* FirstSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167FE4DE2B6670FF00C22D13 /* FirstSectionViewModel.swift */; };
 		167FE4E12B668ADE00C22D13 /* RecentlyPlayedSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167FE4E02B668ADE00C22D13 /* RecentlyPlayedSongs.swift */; };
@@ -54,6 +55,7 @@
 		160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFirstSectionDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		161731932B623BEE00A3608A /* RecentlySongsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlySongsModel.swift; sourceTree = "<group>"; };
 		161731972B62D5B100A3608A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTAppearance.swift; sourceTree = "<group>"; };
 		166D6E602B6802A3002CEDB0 /* WTImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTImageLoader.swift; sourceTree = "<group>"; };
 		167FE4DE2B6670FF00C22D13 /* FirstSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionViewModel.swift; sourceTree = "<group>"; };
 		167FE4E02B668ADE00C22D13 /* RecentlyPlayedSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedSongs.swift; sourceTree = "<group>"; };
@@ -238,6 +240,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		16352CDD2B6D6A8B00BC0AE9 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		166D6E5F2B68028F002CEDB0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 		168645FC2B2A083C009C028A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				16352CDD2B6D6A8B00BC0AE9 /* Appearance */,
 				16F208DD2B695134007FF8AF /* Fonts */,
 				16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */,
 			);
@@ -432,6 +443,7 @@
 				168AC0752B29D66C003ACA9D /* AppDelegate.swift in Sources */,
 				161731982B62D5B100A3608A /* Album.swift in Sources */,
 				160996FA2B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift in Sources */,
+				16352CDF2B6D6AB500BC0AE9 /* WTAppearance.swift in Sources */,
 				166D6E612B6802A3002CEDB0 /* WTImageLoader.swift in Sources */,
 				16C339B42B2AEF1C00BC74E3 /* Coordinator.swift in Sources */,
 				16C339B22B2AEED500BC74E3 /* WTTabBarController.swift in Sources */,
