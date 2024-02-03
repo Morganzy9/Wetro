@@ -50,7 +50,6 @@ extension WTTabBarController: UITabBarControllerDelegate {
             viewController.navigationItem.largeTitleDisplayMode = .automatic
             
             let navigationController = UINavigationController(rootViewController: viewController)
-            navigationController.navigationBar.tintColor = .systemGreen
             navigationController.navigationBar.prefersLargeTitles = true
             
             navigationController.tabBarItem = UITabBarItem(title: tabBarTitles[index], image: UIImage(systemName: tabBarIcons[index]), tag: index)
@@ -89,24 +88,23 @@ extension WTTabBarController: UITabBarControllerDelegate {
             cornerRadius: height / 4
         )
         
-        roundLayer.fillColor = UIColor.secondarySystemBackground.cgColor
+        roundLayer.fillColor = WTAppearance.backGround.cgColor
         roundLayer.path = bezierPath.cgPath
         
-        tabBar.backgroundColor = WTAppearance.backGround
+        tabBar.barTintColor = WTAppearance.backGround
+        
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         tabBar.layer.masksToBounds = false
-        tabBar.layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor
-        tabBar.layer.shadowOffset = CGSize(width: -4, height: -6)
-        tabBar.layer.shadowOpacity = 0.9
-        tabBar.layer.shadowRadius = 20
         tabBar.tintColor = WTAppearance.secondTint
+        tabBar.unselectedItemTintColor = WTAppearance.firstTint
         
         registerForTraitChanges([UITraitUserInterfaceStyle.self], handler: { (self: Self, previousTraitCollection: UITraitCollection) in
-            roundLayer.fillColor = UIColor.secondarySystemBackground.cgColor
+            //  MARK: DARK MODE
         })
     }
+
     
     
     //  MARK: - UITabBarControllerDelegate Functions
