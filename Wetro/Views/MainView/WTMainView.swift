@@ -84,6 +84,7 @@ extension WTMainView {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "NUMERONE")
         collectionView.register(WTFirstSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.firstSectionViewCellIdentifier)
         collectionView.register(WTSecondSectionCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.secondSectionViewCellIdentifier)
+        collectionView.register(WTFirstSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderViewIdentifier")
         return collectionView
     }
     

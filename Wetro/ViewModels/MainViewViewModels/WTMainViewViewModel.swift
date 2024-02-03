@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionViewDataSource {
+final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectionViewDataSource{
     
     enum SectionType: CaseIterable {
         case firstSectionMain
@@ -17,18 +17,18 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
     }
     
     let sections = SectionType.allCases
-
+    
     
     //  MARK: - Public Methods
     
     func setSections(for sectionIndex: Int) -> NSCollectionLayoutSection{
         switch sections[sectionIndex] {
         case .firstSectionMain:
-            return createLayoutSection(with: 250, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
+            return createLayoutSection(with: 250, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), header: true)
         case .secondSectionMain:
-            return createLayoutSection(with: 300, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), isPagingEnabled: true)
+            return createLayoutSection(with: 300, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), isPagingEnabled: true, header: false)
         case .thirdSectionMain:
-            return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), header: false)
         }
     }
     
@@ -36,7 +36,7 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
     
     //  MARK: Creating Sections in MainView
     
-    private func createLayoutSection(with itemHeight: CGFloat, contentInsets: NSDirectionalEdgeInsets, isPagingEnabled: Bool = false, isHorizontal: Bool = false) -> NSCollectionLayoutSection {
+    private func createLayoutSection(with itemHeight: CGFloat, contentInsets: NSDirectionalEdgeInsets, isPagingEnabled: Bool = false, isHorizontal: Bool = false, header: Bool) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                                              heightDimension: .fractionalHeight(1.0)))
         item.contentInsets = contentInsets
@@ -55,8 +55,15 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
         }
         
         let section = NSCollectionLayoutSection(group: group)
+        
         if isPagingEnabled {
             section.orthogonalScrollingBehavior = .groupPaging
+        }
+        
+        if header {
+            section.boundarySupplementaryItems = [
+                .init(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            ]
         }
         
         return section
@@ -94,5 +101,20 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
             return cell
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            fatalError("Unexpected kind of supplementary view")
+        }
+        
+        // Dequeue a reusable header view
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderViewIdentifier", for: indexPath) as! WTFirstSectionHeaderView
+        
+        // Configure the header view
+        //        headerView.titleLabel.text = "Section Header Title" // Set your header title here
+        
+        return headerView
+    }
+    
     
 }

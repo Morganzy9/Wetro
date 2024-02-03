@@ -36,8 +36,8 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     private let listenedAt: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = .white
+        label.textColor = WTAppearance.secodaryBackGround
+        label.font = .poppinsSemiBoldItalic(of: 16)
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -147,7 +147,7 @@ extension WTFirstSectionDataCollectionViewCell {
         
         listenedAt.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10 )
-            make.trailing.equalToSuperview().offset(-10)
+            make.trailing.equalToSuperview().offset(-15)
         }
         
     }
