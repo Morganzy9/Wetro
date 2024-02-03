@@ -46,7 +46,7 @@ extension WTSecondSectionCollectionViewCell: UICollectionViewDelegate, UICollect
         secondSectionCollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
         secondSectionCollectionView.delegate = self
         secondSectionCollectionView.dataSource = self
-        secondSectionCollectionView.register(WTSecondSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
+        secondSectionCollectionView.register(WTSecondSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.secondSectionCellIdentifier)
         secondSectionCollectionView.backgroundColor = .clear
         secondSectionCollectionView.showsHorizontalScrollIndicator = false
     }
@@ -69,7 +69,7 @@ extension WTSecondSectionCollectionViewCell: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTSecondSectionDataCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WTConstants.Identifiers.secondSectionCellIdentifier, for: indexPath) as! WTSecondSectionDataCollectionViewCell
         cell.configure(with: "HERE IT IS")
         return cell
     }

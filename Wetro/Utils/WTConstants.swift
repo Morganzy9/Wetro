@@ -12,10 +12,18 @@ struct WTConstants {
     
     struct Identifiers {
         
-        static let firstSectionViewCellIdentifier = "First_Section_ViewCell_Identifier"
+        //  MARK: - MainVC
         
+        //  MARK: Compositional LayOut Cells
+        
+        static let firstSectionViewCellIdentifier = "First_Section_ViewCell_Identifier"
         static let secondSectionViewCellIdentifier = "Second_Section_ViewCell_Identifier"
-        static let secondSectionDataCellIdentifier = "Second_Section_Data_Cell_Identifier"
+        
+        //  MARK: Sections Cell Identifiers
+        
+        static let firstSectionCellIdentifier = "First_Section_Cell_Identifier"
+        static let secondSectionCellIdentifier = "Second_Section_Cell_Identifier"
+            
     }
     
     struct Keys {

@@ -63,7 +63,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         firstSectionCollectionView.isPagingEnabled = true 
         firstSectionCollectionView.delegate = self
         firstSectionCollectionView.dataSource = self
-        firstSectionCollectionView.register(WTFirstSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: "SecondSectionCell")
+        firstSectionCollectionView.register(WTFirstSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.firstSectionCellIdentifier)
         firstSectionCollectionView.backgroundColor = .clear
         firstSectionCollectionView.showsVerticalScrollIndicator = false
     }
@@ -91,7 +91,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTFirstSectionDataCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WTConstants.Identifiers.firstSectionCellIdentifier, for: indexPath) as! WTFirstSectionDataCollectionViewCell
         cell.configure(with: viewModel.firstSectionData[indexPath.row])
         return cell
     }

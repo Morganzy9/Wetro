@@ -259,9 +259,9 @@
 		168645FC2B2A083C009C028A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */,
 				16352CDD2B6D6A8B00BC0AE9 /* Appearance */,
 				16F208DD2B695134007FF8AF /* Fonts */,
-				16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
