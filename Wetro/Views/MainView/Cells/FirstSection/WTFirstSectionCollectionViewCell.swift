@@ -17,7 +17,8 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     //  MARK: - UI
     
     private let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView()
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = WTAppearance.secondTint
         spinner.hidesWhenStopped = true
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
