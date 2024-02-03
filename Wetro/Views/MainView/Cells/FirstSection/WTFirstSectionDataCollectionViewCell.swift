@@ -20,7 +20,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     private let songsName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.textColor = .white
+        label.textColor = WTAppearance.secodaryBackGround
         label.font = .poppinsSemiBoldItalic(of: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     private let artistname: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = WTAppearance.secodaryBackGround
         label.font = .poppinsSemiBold(of: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -71,7 +71,8 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = WTAppearance.firstTint
+        layer.cornerRadius = 20
     }
     
     
