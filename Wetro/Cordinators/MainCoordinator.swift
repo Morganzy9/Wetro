@@ -21,7 +21,6 @@ final class MainCoordinator: Coordinator {
             let vc = WTOnBoardingVC()
             vc.coordinator = self
             navigationController?.setViewControllers([vc], animated: false)
-            navigationController?.navigationBar.isHidden = false
         }
     }
     
@@ -35,7 +34,6 @@ final class MainCoordinator: Coordinator {
         transition.type = .fade
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.setViewControllers([vc], animated: false)
-        navigationController?.navigationBar.isHidden = false
     }
     
     

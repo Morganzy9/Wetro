@@ -92,7 +92,7 @@ extension WTTabBarController: UITabBarControllerDelegate {
         roundLayer.fillColor = UIColor.secondarySystemBackground.cgColor
         roundLayer.path = bezierPath.cgPath
         
-        tabBar.backgroundColor = .systemBackground
+        tabBar.backgroundColor = WTAppearance.backGround
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
@@ -101,7 +101,7 @@ extension WTTabBarController: UITabBarControllerDelegate {
         tabBar.layer.shadowOffset = CGSize(width: -4, height: -6)
         tabBar.layer.shadowOpacity = 0.9
         tabBar.layer.shadowRadius = 20
-        tabBar.tintColor = .green
+        tabBar.tintColor = WTAppearance.secondTint
         
         registerForTraitChanges([UITraitUserInterfaceStyle.self], handler: { (self: Self, previousTraitCollection: UITraitCollection) in
             roundLayer.fillColor = UIColor.secondarySystemBackground.cgColor

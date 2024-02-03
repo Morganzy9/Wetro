@@ -17,6 +17,16 @@ final class WTMainVC: UIViewController {
         setController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
 }
 
 extension WTMainVC {
@@ -39,7 +49,7 @@ extension WTMainVC {
             }
         }
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = WTAppearance.backGround
     }
     
     private func addSubViews() {
@@ -56,8 +66,6 @@ extension WTMainVC {
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
             }
         }
-        
-        
     }
     
     private func setDelegates() {
