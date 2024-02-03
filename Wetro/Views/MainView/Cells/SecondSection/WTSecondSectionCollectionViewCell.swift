@@ -71,7 +71,6 @@ extension WTSecondSectionCollectionViewCell: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionCell", for: indexPath) as! WTSecondSectionDataCollectionViewCell
         cell.configure(with: "HERE IT IS")
-        cell.backgroundColor = .green
         return cell
     }
     
