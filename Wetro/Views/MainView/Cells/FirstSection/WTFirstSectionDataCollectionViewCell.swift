@@ -49,8 +49,8 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         view.layer.cornerRadius = 10
-        view.layer.shadowColor = UIColor.white.cgColor
-        view.layer.shadowOpacity = 0.8
+        view.layer.shadowColor = WTAppearance.secodaryBackGround.cgColor
+        view.layer.shadowOpacity = 1.0
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowRadius = 5
         view.layer.masksToBounds = false

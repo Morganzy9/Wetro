@@ -15,7 +15,6 @@ final class MainCoordinator: Coordinator {
         if WTAuthManager.shared.isSignedIn {
             let vc = WTTabBarController()
             vc.coordinator = self
-            vc.title = "MainVC"
             navigationController?.setViewControllers([vc], animated: false)
         } else {
             let vc = WTOnBoardingVC()

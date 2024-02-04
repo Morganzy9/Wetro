@@ -25,7 +25,12 @@ final class FirstSectionViewModel {
             
             let pathComponenets = ["player", "recently-played"]
             let headers = ["Authorization": "Bearer \(token)"]
-            let request = WTRequest(endPoint: .me,pathComponents: pathComponenets, headers: headers)
+            let params: [URLQueryItem] = [
+            
+                URLQueryItem(name: "limit", value: "50")
+            
+            ]
+            let request = WTRequest(endPoint: .me, pathComponents: pathComponenets, queryParameters: params ,headers: headers)
             
             WTService.shared.execute(request, expecting: RecentlySongsModel.self)
                 .sink(receiveCompletion: { completion in
