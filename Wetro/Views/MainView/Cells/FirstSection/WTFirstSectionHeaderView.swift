@@ -11,9 +11,12 @@ class WTFirstSectionHeaderView: UICollectionReusableView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Your recently Listened Songs"
+        label.text = "Your recently Listened Songs >"
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.layer.shadowColor = WTAppearance.secodaryBackGround.cgColor
+        label.layer.shadowOpacity = 1.0
+        label.layer.shadowOffset = CGSize(width: 0, height: 4)
         label.textColor = WTAppearance.firstTint
         label.font = .poppinsSemiBoldItalic(of: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
