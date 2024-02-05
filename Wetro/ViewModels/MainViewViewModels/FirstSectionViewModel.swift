@@ -10,6 +10,7 @@ import Combine
 
 protocol FirstSectionViewModelDelegate: AnyObject {
     func didFetchData()
+    func didFetchAdditionalData()
 }
 
 final class FirstSectionViewModel {
@@ -100,7 +101,7 @@ final class FirstSectionViewModel {
                         
                         self.firstSectionData.append(viewModel)
                     }
-                    self.delegate?.didFetchData()
+                    self.delegate?.didFetchAdditionalData()
                 }
                 .store(in: &self.cancellables)
         }

@@ -107,11 +107,7 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
             fatalError("Unexpected kind of supplementary view")
         }
         
-        // Dequeue a reusable header view
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderViewIdentifier", for: indexPath) as! WTFirstSectionHeaderView
-        
-        // Configure the header view
-        //        headerView.titleLabel.text = "Section Header Title" // Set your header title here
         
         return headerView
     }

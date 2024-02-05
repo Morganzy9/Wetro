@@ -51,11 +51,7 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
         spinner.startAnimating()
     }
     
-}
-
-extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FirstSectionViewModelDelegate, UIScrollViewDelegate {
-    
-    //  MARK: - Private Methods
+    // MARK: - Private Methods
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -79,7 +75,6 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     }
     
     private func setConstraints() {
-        
         spinner.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
@@ -88,6 +83,10 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
             make.edges.equalToSuperview()
         }
     }
+    
+}
+
+extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FirstSectionViewModelDelegate, UIScrollViewDelegate {
     
     // MARK: - UICollectionViewDataSource
     
@@ -108,7 +107,8 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
                 ofKind: kind,
                 withReuseIdentifier: WTConstants.Identifiers.firstSectionFooterLoadingCollectionReusableView,
                 for: indexPath) as? WTFooterLoadingCollectionReusableView else {
-            fatalError("Error with dequeeu the footer reusable view")
+            print("Error: Failed to dequeue the footer reusable view")
+            return UICollectionReusableView()
         }
          
         footer.startAnimating()
@@ -116,9 +116,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        
-        guard shouldShowFooterLoadIndicator else { return .zero}
-        return CGSize(width: collectionView.frame.width, height: 100)
+        return shouldShowFooterLoadIndicator ? CGSize(width: collectionView.frame.width, height: 100) : .zero
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -131,7 +129,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         return 10
     }
     
-    //  MARK: - FirstSectionViewModelDelegate
+    // MARK: - FirstSectionViewModelDelegate
     
     func didFetchData() {
         spinner.stopAnimating()
@@ -139,7 +137,12 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         shouldShowFooterLoadIndicator = true
     }
     
-    //  MARK: - UIScrollViewDelegate
+    func didFetchAdditionalData() {
+        isLoadingMoreData = false
+        firstSectionCollectionView.reloadData()
+    }
+    
+    // MARK: - UIScrollViewDelegate
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard shouldShowFooterLoadIndicator, !isLoadingMoreData else { return }
@@ -150,7 +153,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         
         if offSet >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
             isLoadingMoreData = true
+            viewModel.fetchAdditionalsListenedSongs(before: viewModel.before)
         }
     }
-    
 }
