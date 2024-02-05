@@ -27,11 +27,7 @@ final class FirstSectionViewModel {
             
             let pathComponenets = ["player", "recently-played"]
             let headers = ["Authorization": "Bearer \(token)"]
-            let params: [URLQueryItem] = [
-            
-                URLQueryItem(name: "limit", value: "2")
-            
-            ]
+            let params: [URLQueryItem] = [ URLQueryItem(name: "limit", value: "5") ]
             let request = WTRequest(endPoint: .me, pathComponents: pathComponenets, queryParameters: params ,headers: headers)
             
             WTService.shared.execute(request, expecting: RecentlySongsModel.self)
@@ -76,7 +72,7 @@ final class FirstSectionViewModel {
             let pathComponents = ["player", "recently-played"]
             let headers = ["Authorization": "Bearer \(token)"]
             let params: [URLQueryItem] = [
-                URLQueryItem(name: "limit", value: "50"),
+                URLQueryItem(name: "limit", value: "5"),
                 URLQueryItem(name: "before", value: before)
             ]
             
@@ -90,6 +86,7 @@ final class FirstSectionViewModel {
                         print("Error: \(error)")
                     }
                 } receiveValue: { response in
+                    self.before = response.cursors.before
                     for song in response.items {
                         let songsName = self.truncateSongName(song.track.name)
                         guard let artistName = song.track.artists.first?.name else { return }
