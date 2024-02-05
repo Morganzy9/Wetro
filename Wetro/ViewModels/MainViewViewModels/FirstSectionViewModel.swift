@@ -17,6 +17,7 @@ final class FirstSectionViewModel {
     weak var delegate: FirstSectionViewModelDelegate?
     var cancellables: Set<AnyCancellable> = []
     var firstSectionData: [RecentlyPlayedSongs] = []
+    var before: String?
     
     func fetchListenedSongs() {
         
@@ -27,7 +28,7 @@ final class FirstSectionViewModel {
             let headers = ["Authorization": "Bearer \(token)"]
             let params: [URLQueryItem] = [
             
-                URLQueryItem(name: "limit", value: "50")
+                URLQueryItem(name: "limit", value: "25")
             
             ]
             let request = WTRequest(endPoint: .me, pathComponents: pathComponenets, queryParameters: params ,headers: headers)
@@ -40,6 +41,8 @@ final class FirstSectionViewModel {
                         print("Error this: \(error)")
                     }
                 }, receiveValue: { response in
+                    self.before = response.cursors.before
+                    
                     for song in response.items {
                         
                         let songsName = self.truncateSongName(song.track.name)
@@ -61,6 +64,49 @@ final class FirstSectionViewModel {
                 .store(in: &cancellables)
         }
     }
+    
+    func fetchAdditionalsListenedSongs(before: String?) {
+        guard let before = before else { return }
+        print("DEBUG CONSOLE: \(before)")
+        
+        WTAuthManager.shared.withValidAccessToken { [weak self] token in
+            guard let self = self, let token = token else { return }
+            
+            let pathComponents = ["player", "recently-played"]
+            let headers = ["Authorization": "Bearer \(token)"]
+            let params: [URLQueryItem] = [
+                URLQueryItem(name: "limit", value: "50"),
+                URLQueryItem(name: "before", value: before)
+            ]
+            
+            let request = WTRequest(endPoint: .me, pathComponents: pathComponents, queryParameters: params, headers: headers)
+            
+            WTService.shared.execute(request, expecting: RecentlySongsModel.self)
+                .sink { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
+                } receiveValue: { response in
+                    for song in response.items {
+                        let songsName = self.truncateSongName(song.track.name)
+                        guard let artistName = song.track.artists.first?.name else { return }
+                        guard let url = song.track.album.images.first?.url else { return }
+                        guard let imageUrl = URL(string: url) else { return }
+                        guard let playedAt = self.formatDate(song.playedAt) else { return }
+                       
+                        let viewModel = RecentlyPlayedSongs(songName: songsName, playedAt: playedAt, artistName: artistName, image: imageUrl)
+                        
+                        self.firstSectionData.append(viewModel)
+                    }
+                    self.delegate?.didFetchData()
+                }
+                .store(in: &self.cancellables)
+        }
+    }
+
+
     
     private func formatDate(_ dateString: String) -> String? {
         let dateFormatter = DateFormatter()
