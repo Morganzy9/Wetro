@@ -22,7 +22,12 @@ struct WTConstants {
         //  MARK: Sections Cell Identifiers
         
         static let firstSectionCellIdentifier = "First_Section_Cell_Identifier"
+        static let firstSectionFooterLoadingCollectionReusableView = "WT_Footer_Loading_Collection_Reusable_View"
+        
         static let secondSectionCellIdentifier = "Second_Section_Cell_Identifier"
+        
+        
+        
             
     }
     

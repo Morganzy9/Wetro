@@ -19,6 +19,7 @@
 		161731982B62D5B100A3608A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161731972B62D5B100A3608A /* Album.swift */; };
 		16352CDF2B6D6AB500BC0AE9 /* WTAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */; };
 		16352CE12B6E88A200BC0AE9 /* WTFirstSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16352CE02B6E88A200BC0AE9 /* WTFirstSectionHeaderView.swift */; };
+		164E531E2B711405001CDF36 /* WTFooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164E531D2B711405001CDF36 /* WTFooterLoadingCollectionReusableView.swift */; };
 		166D6E612B6802A3002CEDB0 /* WTImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166D6E602B6802A3002CEDB0 /* WTImageLoader.swift */; };
 		167FE4DF2B6670FF00C22D13 /* FirstSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167FE4DE2B6670FF00C22D13 /* FirstSectionViewModel.swift */; };
 		167FE4E12B668ADE00C22D13 /* RecentlyPlayedSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167FE4E02B668ADE00C22D13 /* RecentlyPlayedSongs.swift */; };
@@ -58,6 +59,7 @@
 		161731972B62D5B100A3608A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTAppearance.swift; sourceTree = "<group>"; };
 		16352CE02B6E88A200BC0AE9 /* WTFirstSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFirstSectionHeaderView.swift; sourceTree = "<group>"; };
+		164E531D2B711405001CDF36 /* WTFooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTFooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		166D6E602B6802A3002CEDB0 /* WTImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTImageLoader.swift; sourceTree = "<group>"; };
 		167FE4DE2B6670FF00C22D13 /* FirstSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionViewModel.swift; sourceTree = "<group>"; };
 		167FE4E02B668ADE00C22D13 /* RecentlyPlayedSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedSongs.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				160996F92B4DB06B00769DC3 /* WTFirstSectionCollectionViewCell.swift */,
 				160996FF2B4DC56A00769DC3 /* WTFirstSectionDataCollectionViewCell.swift */,
 				16352CE02B6E88A200BC0AE9 /* WTFirstSectionHeaderView.swift */,
+				164E531D2B711405001CDF36 /* WTFooterLoadingCollectionReusableView.swift */,
 			);
 			path = FirstSection;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				161731942B623BEE00A3608A /* RecentlySongsModel.swift in Sources */,
 				16E68EB02B31FBF400F8F6CD /* WTPersistenceActionType.swift in Sources */,
 				16E68EAE2B31FA0E00F8F6CD /* WTToken.swift in Sources */,
+				164E531E2B711405001CDF36 /* WTFooterLoadingCollectionReusableView.swift in Sources */,
 				16E68EA42B30A37400F8F6CD /* WTRequest.swift in Sources */,
 				16F208DC2B695105007FF8AF /* UIFont.swift in Sources */,
 				160996EC2B4B101100769DC3 /* WTMainVC.swift in Sources */,

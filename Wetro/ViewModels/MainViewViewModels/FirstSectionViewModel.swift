@@ -28,7 +28,7 @@ final class FirstSectionViewModel {
             let headers = ["Authorization": "Bearer \(token)"]
             let params: [URLQueryItem] = [
             
-                URLQueryItem(name: "limit", value: "25")
+                URLQueryItem(name: "limit", value: "2")
             
             ]
             let request = WTRequest(endPoint: .me, pathComponents: pathComponenets, queryParameters: params ,headers: headers)

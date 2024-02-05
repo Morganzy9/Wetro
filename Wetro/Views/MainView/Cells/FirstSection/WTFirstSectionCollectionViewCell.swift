@@ -14,6 +14,8 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     private var firstSectionCollectionView: UICollectionView!
     private let viewModel = FirstSectionViewModel()
     
+    private var shouldShowFooterLoadIndicator = false
+    
     //  MARK: - UI
     
     private let spinner: UIActivityIndicatorView = {
@@ -61,10 +63,11 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         layout.sectionInset = .zero
         
         firstSectionCollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        firstSectionCollectionView.isPagingEnabled = true 
+        firstSectionCollectionView.isPagingEnabled = true
         firstSectionCollectionView.delegate = self
         firstSectionCollectionView.dataSource = self
         firstSectionCollectionView.register(WTFirstSectionDataCollectionViewCell.self, forCellWithReuseIdentifier: WTConstants.Identifiers.firstSectionCellIdentifier)
+        firstSectionCollectionView.register(WTFooterLoadingCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: WTConstants.Identifiers.firstSectionFooterLoadingCollectionReusableView)
         firstSectionCollectionView.backgroundColor = .clear
         firstSectionCollectionView.showsVerticalScrollIndicator = false
     }
@@ -97,6 +100,26 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        guard kind == UICollectionView.elementKindSectionFooter, shouldShowFooterLoadIndicator,
+              let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: WTConstants.Identifiers.firstSectionFooterLoadingCollectionReusableView,
+                for: indexPath) as? WTFooterLoadingCollectionReusableView else {
+            fatalError("Error with dequeeu the footer reusable view")
+        }
+         
+        footer.startAnimating()
+        return footer
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        guard shouldShowFooterLoadIndicator else { return .zero}
+        return CGSize(width: collectionView.frame.width, height: 100)
+    }
+    
     // UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -112,6 +135,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
     func didFetchData() {
         spinner.stopAnimating()
         firstSectionCollectionView.reloadData()
+        shouldShowFooterLoadIndicator = true
     }
     
     
