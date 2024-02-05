@@ -15,6 +15,7 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     private let viewModel = FirstSectionViewModel()
     
     private var shouldShowFooterLoadIndicator = false
+    private var isLoadingMoreData = false
     
     //  MARK: - UI
     
@@ -52,7 +53,7 @@ class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     
 }
 
-extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FirstSectionViewModelDelegate {
+extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FirstSectionViewModelDelegate, UIScrollViewDelegate {
     
     //  MARK: - Private Methods
     
@@ -88,7 +89,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         }
     }
     
-    // UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.firstSectionData.count
@@ -120,7 +121,7 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         return CGSize(width: collectionView.frame.width, height: 100)
     }
     
-    // UICollectionViewDelegateFlowLayout
+    // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height - 10)
@@ -138,5 +139,18 @@ extension WTFirstSectionCollectionViewCell: UICollectionViewDelegate, UICollecti
         shouldShowFooterLoadIndicator = true
     }
     
+    //  MARK: - UIScrollViewDelegate
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard shouldShowFooterLoadIndicator, !isLoadingMoreData else { return }
+        
+        let offSet = scrollView.contentOffset.y
+        let totalContentHeight = scrollView.contentSize.height
+        let totalScrollViewFixedHeight = scrollView.frame.size.height
+        
+        if offSet >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
+            isLoadingMoreData = true
+        }
+    }
     
 }
