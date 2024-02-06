@@ -39,12 +39,12 @@ extension WTTabBarController: UITabBarControllerDelegate {
         
         var viewControllers: [UIViewController] = [
             WTMainVC(),
-            WTOnBoardingVC(),
-            WTOnBoardingVC(),
+            WTMainVC(),
+            WTMainVC(),
         ]
         
-        let tabBarIcons = ["person", "globe", "gear"]
-        let tabBarTitles = ["Characters", "Locations", "Settings"]
+        let tabBarIcons = ["globe", "heart", "gear"]
+        let tabBarTitles = ["Main", "Explore", "Settings"]
         
         for (index, viewController) in viewControllers.enumerated() {
             viewController.navigationItem.largeTitleDisplayMode = .automatic

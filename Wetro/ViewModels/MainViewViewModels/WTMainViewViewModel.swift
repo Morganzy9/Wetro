@@ -24,9 +24,9 @@ final class WTMainViewViewModel: NSObject ,UICollectionViewDelegate, UICollectio
     func setSections(for sectionIndex: Int) -> NSCollectionLayoutSection{
         switch sections[sectionIndex] {
         case .firstSectionMain:
-            return createLayoutSection(with: 250, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), header: true)
+            return createLayoutSection(with: 250, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), header: true)
         case .secondSectionMain:
-            return createLayoutSection(with: 300, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10), isPagingEnabled: true, header: false)
+            return createLayoutSection(with: 320, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), isPagingEnabled: true, header: false)
         case .thirdSectionMain:
             return createLayoutSection(with: 150, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), header: false)
         }
