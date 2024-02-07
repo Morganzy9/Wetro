@@ -246,14 +246,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		16352CDD2B6D6A8B00BC0AE9 /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-				16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */,
-			);
-			path = Appearance;
-			sourceTree = "<group>";
-		};
 		166D6E5F2B68028F002CEDB0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				16E68EB12B31FCBD00F8F6CD /* WTConstants.swift */,
-				16352CDD2B6D6A8B00BC0AE9 /* Appearance */,
+				16352CDE2B6D6AB500BC0AE9 /* WTAppearance.swift */,
 				16F208DD2B695134007FF8AF /* Fonts */,
 			);
 			path = Utils;

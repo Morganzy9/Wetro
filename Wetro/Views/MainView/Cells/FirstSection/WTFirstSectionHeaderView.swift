@@ -9,7 +9,7 @@ import UIKit
 
 class WTFirstSectionHeaderView: UICollectionReusableView {
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Your recently Listened Songs >"
         label.numberOfLines = 0
@@ -22,6 +22,8 @@ class WTFirstSectionHeaderView: UICollectionReusableView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

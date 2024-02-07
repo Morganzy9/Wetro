@@ -80,6 +80,14 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        songsName.text = nil
+        artistname.text = nil
+        listenedAt.text = nil
+        songsImageContainer.removeFromSuperview()
+        songsImage.image = nil
+    }
+    
 }
 extension WTFirstSectionDataCollectionViewCell {
     

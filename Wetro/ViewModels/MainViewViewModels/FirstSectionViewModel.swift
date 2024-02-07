@@ -64,7 +64,6 @@ final class FirstSectionViewModel {
     
     func fetchAdditionalsListenedSongs(before: String?) {
         guard let before = before else { return }
-        print("DEBUG CONSOLE: \(before)")
         
         WTAuthManager.shared.withValidAccessToken { [weak self] token in
             guard let self = self, let token = token else { return }
