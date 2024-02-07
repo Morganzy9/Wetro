@@ -73,7 +73,7 @@ extension WTTabBarController: UITabBarControllerDelegate {
     /// TabBar Loking
     private func setTabBarAppearance() {
         let positionOnX: CGFloat = 10
-        let positionOnY: CGFloat = 13
+        let positionOnY: CGFloat = 15
         let width = tabBar.bounds.width - positionOnX * 2
         let height = tabBar.bounds.height + positionOnY * 2
         let roundLayer = CAShapeLayer()
@@ -93,6 +93,11 @@ extension WTTabBarController: UITabBarControllerDelegate {
         
         tabBar.barTintColor = WTAppearance.backGround
         
+        tabBar.layer.shadowColor = WTAppearance.secondTint.cgColor
+        tabBar.layer.shadowOpacity = 0.3
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 1)
+        tabBar.layer.shadowRadius = 4
+        
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
@@ -104,7 +109,8 @@ extension WTTabBarController: UITabBarControllerDelegate {
             //  MARK: DARK MODE
         })
     }
-
+    
+    
     
     
     //  MARK: - UITabBarControllerDelegate Functions
