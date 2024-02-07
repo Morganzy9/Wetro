@@ -20,7 +20,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     private let songsName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.textColor = WTAppearance.secodaryBackGround
+        label.textColor = WTAppearance.secondaryBackGround
         label.font = .poppinsSemiBoldItalic(of: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     private let artistname: UILabel = {
         let label = UILabel()
-        label.textColor = WTAppearance.secodaryBackGround
+        label.textColor = WTAppearance.secondaryBackGround
         label.font = .poppinsSemiBold(of: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,7 +36,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     private let listenedAt: UILabel = {
         let label = UILabel()
-        label.textColor = WTAppearance.secodaryBackGround
+        label.textColor = WTAppearance.secondaryBackGround
         label.font = .poppinsSemiBoldItalic(of: 16)
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
@@ -49,7 +49,7 @@ class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         view.layer.cornerRadius = 10
-        view.layer.shadowColor = WTAppearance.secodaryBackGround.cgColor
+        view.layer.shadowColor = WTAppearance.secondaryBackGround.cgColor
         view.layer.shadowOpacity = 1.0
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowRadius = 5

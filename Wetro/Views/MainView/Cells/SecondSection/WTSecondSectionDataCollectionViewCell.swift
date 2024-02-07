@@ -22,7 +22,7 @@ class WTSecondSectionDataCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setCell()
-        backgroundColor = WTAppearance.secondTint
+        backgroundColor = WTAppearance.firstTint
         layer.cornerRadius = 20
     }
     
