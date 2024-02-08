@@ -7,7 +7,9 @@
 
 import UIKit
 
-class WTFirstSectionHeaderView: UICollectionReusableView {
+final class WTFirstSectionHeaderView: UICollectionReusableView {
+    
+    //  MARK: - UI
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -23,7 +25,7 @@ class WTFirstSectionHeaderView: UICollectionReusableView {
         return label
     }()
     
-    
+    //  MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,8 +35,11 @@ class WTFirstSectionHeaderView: UICollectionReusableView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 extension WTFirstSectionHeaderView {
+    
+    //  MARK: - Private Methods
     
     private func setView() {
         addSubViews()

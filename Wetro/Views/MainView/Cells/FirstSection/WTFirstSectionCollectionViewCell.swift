@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WTFirstSectionCollectionViewCell: UICollectionViewCell {
+final class WTFirstSectionCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     

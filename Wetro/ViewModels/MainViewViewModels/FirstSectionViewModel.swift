@@ -15,10 +15,14 @@ protocol FirstSectionViewModelDelegate: AnyObject {
 
 final class FirstSectionViewModel {
     
+    //  MARK: - Properties
+    
     weak var delegate: FirstSectionViewModelDelegate?
     var cancellables: Set<AnyCancellable> = []
     var firstSectionData: [RecentlyPlayedSongs] = []
     var before: String?
+    
+    //  MARK: - Methods
     
     func fetchListenedSongs() {
         
@@ -104,6 +108,7 @@ final class FirstSectionViewModel {
     }
 
 
+    //  MARK: - Private Methods
     
     private func formatDate(_ dateString: String) -> String? {
         let dateFormatter = DateFormatter()

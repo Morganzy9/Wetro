@@ -8,8 +8,10 @@
 import UIKit
 import SnapKit
 
-class WTFooterLoadingCollectionReusableView: UICollectionReusableView {
+final class WTFooterLoadingCollectionReusableView: UICollectionReusableView {
  
+    //  MARK: - UI
+    
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.color = WTAppearance.secondTint
@@ -17,6 +19,8 @@ class WTFooterLoadingCollectionReusableView: UICollectionReusableView {
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
     }()
+    
+    //  MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,9 +35,13 @@ class WTFooterLoadingCollectionReusableView: UICollectionReusableView {
 
 extension WTFooterLoadingCollectionReusableView {
     
+    //  MARK: - Methods
+    
     func startAnimating() {
         spinner.startAnimating()
     }
+    
+    //  MARK: - Private Methods
     
     private func setView() {
         addSubViews()

@@ -61,9 +61,6 @@ final class WTRequest {
     /// HTTP Method
     public let httpMethod: String
     
-    //  MARK: Public Init
-    
-    
     /// Construct Request
     /// - Parameters:
     ///   - endPoint: Target EndPoint

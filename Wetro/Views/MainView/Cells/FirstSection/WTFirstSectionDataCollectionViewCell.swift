@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
+final class WTFirstSectionDataCollectionViewCell: UICollectionViewCell {
     
     //  MARK: - Properties
     
