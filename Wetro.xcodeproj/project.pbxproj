@@ -189,6 +189,23 @@
 			path = BasicResponseElements;
 			sourceTree = "<group>";
 		};
+		161815522B77A6DE00F64F54 /* ResponseTypes */ = {
+			isa = PBXGroup;
+			children = (
+				167FE4E02B668ADE00C22D13 /* RecentlyPlayedSongs.swift */,
+			);
+			path = ResponseTypes;
+			sourceTree = "<group>";
+		};
+		161815532B77A6EE00F64F54 /* DecodingModels */ = {
+			isa = PBXGroup;
+			children = (
+				16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */,
+				161731932B623BEE00A3608A /* RecentlySongsModel.swift */,
+			);
+			path = DecodingModels;
+			sourceTree = "<group>";
+		};
 		161EABF72B29DE9200522B14 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,10 +227,9 @@
 		161EABF92B29DEC500522B14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				161815532B77A6EE00F64F54 /* DecodingModels */,
+				161815522B77A6DE00F64F54 /* ResponseTypes */,
 				161731992B62D5CE00A3608A /* BasicResponseElements */,
-				16E68EAD2B31FA0E00F8F6CD /* WTToken.swift */,
-				161731932B623BEE00A3608A /* RecentlySongsModel.swift */,
-				167FE4E02B668ADE00C22D13 /* RecentlyPlayedSongs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
